@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Wells Fargo Mobile - Profile</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="image" href="images/new.webp" type="image/webp" fetchpriority="high">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="app.js"></script>
+</head>
+<body class="wf-subpage-body">
+    <div class="container wf-subpage-container">
+        <header class="wf-red-header">
+            <div class="wf-red-title">Sophia</div>
+        </header>
+
+        <main class="wf-subpage-main">
+            <div class="wf-profile-card">
+                <div class="wf-profile-title">Your profile</div>
+                <div class="wf-profile-photo">
+                    <picture>
+                        <source srcset="images/new.webp" type="image/webp">
+                        <img class="wf-profile-img" alt="Profile photo" src="images/new.png" width="86" height="86" fetchpriority="high" decoding="sync">
+                    </picture>
+                </div>
+                <div class="wf-profile-table">
+                    <div class="wf-profile-label">Name</div>
+                    <div class="wf-profile-value">Sophia</div>
+                    <div class="wf-profile-label">Dob</div>
+                    <div class="wf-profile-value">January 4 1992</div>
+                    <div class="wf-profile-label">Address</div>
+                    <div class="wf-profile-value">3657 ALVINA AVE</div>
+                    <div class="wf-profile-label">State</div>
+                    <div class="wf-profile-value">MI</div>
+                    <div class="wf-profile-label">Zip code</div>
+                    <div class="wf-profile-value">48091-2452</div>
+                    <div class="wf-profile-label">Email</div>
+                    <div class="wf-profile-value">sophiamichelleamanda@gmail.com</div>
+                    <div class="wf-profile-label">Phone Number</div>
+                    <div class="wf-profile-value wf-link">+1 (305) 942-8614</div>
+
+                    <div class="wf-profile-label wf-profile-section-label">Cards</div>
+                    <div class="wf-profile-cards">
+                        <div class="wf-profile-card-row">
+                            <div class="wf-profile-card-name">Plantinum Debit Card</div>
+                            <div class="wf-profile-card-number"><span class="wf-mask">****&nbsp;&nbsp;****&nbsp;&nbsp;****</span><span class="wf-last4">2974</span></div>
+                        </div>
+                        <div class="wf-profile-card-row">
+                            <div class="wf-profile-card-name">Wells Fargo Credit Card</div>
+                            <div class="wf-profile-card-number"><span class="wf-mask">****&nbsp;&nbsp;****&nbsp;&nbsp;****</span><span class="wf-last4">3946</span></div>
+                        </div>
+                        <div class="wf-profile-card-row">
+                            <div class="wf-profile-card-name">Sophia Spending Cards</div>
+                            <div class="wf-profile-card-number"><span class="wf-mask">****&nbsp;&nbsp;****&nbsp;&nbsp;****</span><span class="wf-last4">0273</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wf-profile-footer">
+                    <a class="wf-logout" href="index.html" onclick="if (window.wfAuth && window.wfAuth.logout) { event.preventDefault(); window.wfAuth.logout(); }">Logout</a>
+                    <div class="wf-since">Since April 2019</div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="wf-tabbar" aria-label="Primary">
+            <a class="wf-tab" href="dashboard.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 3 10.5v9.5c0 .6.4 1 1 1h6v-7h4v7h6c.6 0 1-.4 1-1v-9.5L12 3Z" fill="currentColor"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a class="wf-tab" href="card.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16a2 2 0 0 1 2 2v2H2V8a2 2 0 0 1 2-2Zm-2 6h20v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Z" fill="currentColor"/>
+                </svg>
+                <span>Card</span>
+            </a>
+            <a class="wf-tab" href="transfer.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 7h10l-2-2 1.4-1.4L21 7l-4.6 4.4L15 10l2-2H7V7Zm10 10H7l2 2-1.4 1.4L3 17l4.6-4.4L9 14l-2 2h10v1Z" fill="currentColor"/>
+                </svg>
+                <span>Transfer</span>
+            </a>
+            <a class="wf-tab" href="history.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="6.5" y="4.5" width="11" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9 9h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>History</span>
+            </a>
+            <a class="wf-tab active" href="profile.html" aria-current="page">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.3-8 5v2h16v-2c0-2.7-3.6-5-8-5Z" fill="currentColor"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+</body>
+</html>

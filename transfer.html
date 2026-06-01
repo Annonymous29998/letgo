@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Wells Fargo Mobile - Transfer</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="app.js"></script>
+</head>
+<body class="wf-subpage-body">
+    <div class="container wf-subpage-container">
+        <header class="wf-red-header">
+            <div class="wf-red-title">Transfer Money</div>
+        </header>
+
+        <main class="wf-transfer-main">
+            <div class="wf-transfer-hero-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                    <path d="M18 14h20a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" fill="#b00000"/>
+                    <circle cx="24" cy="24" r="4" fill="#fff" opacity="0.9"/>
+                    <path d="M10 20l6-4v8l-6-4Z" fill="#b00000"/>
+                    <path d="M38 28l-6 4v-8l6 4Z" fill="#b00000"/>
+                </svg>
+            </div>
+
+            <div class="wf-fdic-row">
+                <div class="wf-fdic-logo">FDIC</div>
+                <div class="wf-fdic-text">FDIC-Insured - Backed by the full faith and credit of the U.S. Government</div>
+            </div>
+
+            <form class="wf-transfer-form" action="#">
+                <div class="wf-field">
+                    <label class="wf-label" for="fromAccount">Transfer from</label>
+                    <div class="wf-select">
+                        <select id="fromAccount">
+                            <option>Wells Fargo Way2Save Checking...3203 - $600,000.00</option>
+                            <option>Everyday Checking...5688 - $600,000.00</option>
+                            <option>Wells Fargo Way2Save Savings...1902 - $300,000.00</option>
+                        </select>
+                    </div>
+                    <div class="wf-help">
+                        <div>Need to add another account to make this transfer?</div>
+                        <a href="#" class="wf-help-link">Add an external account</a>
+                    </div>
+                </div>
+
+                <div class="wf-field">
+                    <label class="wf-label">Transfer to</label>
+                    <div class="wf-grid-2">
+                        <input id="toAccount" class="wf-input" type="text" inputmode="numeric" placeholder="Account Number">
+                        <input id="routingNumber" class="wf-input" type="text" inputmode="numeric" placeholder="Routine Number">
+                    </div>
+                </div>
+
+                <div class="wf-grid-2 wf-field">
+                    <div>
+                        <label class="wf-label" for="frequency">Frequency</label>
+                        <div class="wf-select">
+                            <select id="frequency">
+                                <option>One Time</option>
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="wf-label" for="transferDate">Transfer date</label>
+                        <input id="transferDate" class="wf-input" type="date">
+                    </div>
+                </div>
+
+                <div class="wf-field">
+                    <label class="wf-label" for="amount">Amount</label>
+                    <div class="wf-amount-box">
+                        <span class="wf-amount-currency">$</span>
+                        <input id="amount" class="wf-amount-input" type="text" inputmode="numeric" value="" placeholder="">
+                        <span id="amountDecimals" class="wf-amount-decimals" aria-hidden="true">.00</span>
+                    </div>
+                </div>
+
+                <div class="wf-field">
+                    <label class="wf-label" for="memo">Memo</label>
+                    <textarea id="memo" class="wf-textarea"></textarea>
+                </div>
+
+                <div class="wf-consent">By confirming, I authorize Wells Fargo® to transfer my money as indicated above.</div>
+            </form>
+        </main>
+
+        <div class="wf-confirm-wrap">
+            <button id="confirmBtn" class="wf-confirm-btn" type="button">
+                <span class="wf-confirm-icon" aria-hidden="true">
+                    <svg id="confirmPlane" viewBox="0 0 24 24">
+                        <path d="M3 11.5 21 3l-8 18-2-7-8-2.5Z" fill="#fff"/>
+                    </svg>
+                </span>
+                <span id="confirmText">Click to Confirm</span>
+            </button>
+        </div>
+
+        <nav class="wf-tabbar" aria-label="Primary">
+            <a class="wf-tab" href="dashboard.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 3 10.5v9.5c0 .6.4 1 1 1h6v-7h4v7h6c.6 0 1-.4 1-1v-9.5L12 3Z" fill="currentColor"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a class="wf-tab" href="card.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16a2 2 0 0 1 2 2v2H2V8a2 2 0 0 1 2-2Zm-2 6h20v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Z" fill="currentColor"/>
+                </svg>
+                <span>Card</span>
+            </a>
+            <a class="wf-tab active" href="transfer.html" aria-current="page">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 7h10l-2-2 1.4-1.4L21 7l-4.6 4.4L15 10l2-2H7V7Zm10 10H7l2 2-1.4 1.4L3 17l4.6-4.4L9 14l-2 2h10v1Z" fill="currentColor"/>
+                </svg>
+                <span>Transfer</span>
+            </a>
+            <a class="wf-tab" href="history.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="6.5" y="4.5" width="11" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9 9h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>History</span>
+            </a>
+            <a class="wf-tab" href="profile.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.3-8 5v2h16v-2c0-2.7-3.6-5-8-5Z" fill="currentColor"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        const amountInput = document.getElementById('amount');
+        const amountDecimals = document.getElementById('amountDecimals');
+
+        function syncAmountDisplay() {
+            const digitsOnly = (amountInput?.value ?? '').replace(/\D/g, '');
+            amountInput.value = digitsOnly;
+            amountDecimals.style.display = digitsOnly ? 'block' : 'none';
+        }
+
+        function readAmount() {
+            const raw = (amountInput?.value ?? '').trim();
+            const cleaned = raw.replace(/\D/g, '');
+            const value = Number.parseFloat(cleaned);
+            if (!Number.isFinite(value)) return 0;
+            return value;
+        }
+
+        function formatMoney(amount) {
+            return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        }
+
+        function todayLabel() {
+            const d = new Date();
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        const confirmBtn = document.getElementById('confirmBtn');
+        const confirmPlane = document.getElementById('confirmPlane');
+        const confirmText = document.getElementById('confirmText');
+
+        amountInput.addEventListener('input', syncAmountDisplay);
+        syncAmountDisplay();
+
+        confirmBtn.addEventListener('click', () => {
+            if (confirmBtn.classList.contains('is-loading')) return;
+
+            const from = document.getElementById('fromAccount')?.value ?? '';
+            const toAccount = document.getElementById('toAccount')?.value?.trim() ?? '';
+            const routing = document.getElementById('routingNumber')?.value?.trim() ?? '';
+            const frequency = document.getElementById('frequency')?.value ?? '';
+            const date = document.getElementById('transferDate')?.value ?? '';
+            const memo = document.getElementById('memo')?.value?.trim() ?? '';
+            const amountValue = readAmount();
+
+            const pending = {
+                createdAt: new Date().toISOString(),
+                dateLabel: todayLabel(),
+                from,
+                toAccount,
+                routing,
+                frequency,
+                date,
+                memo,
+                amount: formatMoney(amountValue),
+                status: 'Pending',
+            };
+
+            localStorage.setItem('pendingTransfer', JSON.stringify(pending));
+
+            confirmBtn.classList.add('is-loading');
+            confirmText.textContent = 'Confirming...';
+            confirmPlane.classList.add('wf-plane-fly');
+
+            window.setTimeout(() => {
+                window.location.href = 'history.html?pending=1';
+            }, 900);
+        });
+    </script>
+</body>
+</html>

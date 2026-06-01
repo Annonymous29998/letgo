@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Wells Fargo Mobile</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="image" href="images/bg.jpg" type="image/jpeg" fetchpriority="high">
+    <link rel="prefetch" as="image" href="images/wells.webp" type="image/webp">
+    <link rel="prefetch" as="image" href="images/new.webp" type="image/webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+    <!-- Background Image -->
+    <div class="login-bg"></div>
+
+    <div class="container login-container">
+        <!-- Header -->
+        <header class="login-header">
+            <div class="brand-name">WELLS FARGO</div>
+            <div class="location-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+        </header>
+
+        <!-- Greeting -->
+        <div class="login-greeting">
+            <h1 id="greetingText">Good afternoon</h1>
+        </div>
+
+        <!-- Glassmorphism Login Card -->
+        <div class="login-card">
+            <form id="loginForm" action="#" method="POST">
+                <div class="input-container">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+
+                <div class="input-container password-container">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <span class="show-password" id="togglePassword">Show</span>
+                </div>
+
+                <div class="login-options">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="save-username" name="save-username">
+                        <label for="save-username">Save username</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="face-id" name="face-id">
+                        <label for="face-id">Set up Face ID®</label>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="enroll-btn">Enroll</button>
+                    <button type="submit" class="sign-on-btn-glass" id="signOnBtn" disabled>
+                        <i class="fa-solid fa-lock" id="lockIcon"></i> 
+                        <span id="btnText">Sign On</span>
+                        <div class="spinner" id="loadingSpinner"></div>
+                    </button>
+                </div>
+
+                <div class="login-links">
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i> Sign on with a passkey</a>
+                    <a href="#"><i class="fa-solid fa-arrow-right"></i> Forgot username or password?</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Cards -->
+        <div class="bottom-cards">
+            <div class="info-card">
+                <div class="card-icon-circle">
+                    <i class="fa-regular fa-compass"></i>
+                </div>
+                <h3>Explore our products</h3>
+                <a href="#" class="card-link">Find your fit <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+            <div class="info-card">
+                <div class="card-icon-circle">
+                    <i class="fa-regular fa-credit-card"></i>
+                </div>
+                <h3>Enjoy 0% intro APR for 21 months</h3>
+                <a href="#" class="card-link">Learn more <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <footer class="login-footer">
+            <div class="footer-menu">
+                <a href="#">Customer Service</a>
+                <a href="#">Enroll in Online Banking</a>
+                <a href="#">Diversity & Accessibility</a>
+                <a href="#">Privacy, Cookies, Security & Legal</a>
+                <a href="#">Do Not Sell or Share My Personal Information</a>
+                <a href="#">Notice of Data Collection</a>
+                <a href="#">General Terms of Use</a>
+                <a href="#">Online Access Agreement</a>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p><strong>Investment and Insurance Products are:</strong></p>
+                <ul>
+                    <li>Not Insured by the FDIC or Any Federal Government Agency</li>
+                    <li>Not a Deposit or Other Obligation of, or Guaranteed by, the Bank or Any Bank Affiliate</li>
+                    <li>Subject to Investment Risks, Including Possible Loss of the Principal Amount Invested</li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <p>Investment products and services are offered through Wells Fargo Advisors...</p>
+                <p>Deposit products offered by Wells Fargo Bank, N.A. Member FDIC.</p>
+                <div class="housing-lender">
+                    <i class="fa-solid fa-house"></i> Equal Housing Lender
+                </div>
+                <p>NMLSR ID 399801</p>
+                <p>© 2026 Wells Fargo Bank, N.A.</p>
+                <p class="version-id">PM-01162027-7403647.1.6</p>
+                <a href="#" class="app-info">App Info</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom iOS Style Alert Modal -->
+    <div id="customAlert" class="ios-alert-overlay">
+        <div class="ios-alert-box">
+            <div class="ios-alert-content">
+                <p>That combination doesn't match our records. You can try again, or we can help you create a new password or find your username.</p>
+            </div>
+            <div class="ios-alert-actions">
+                <button id="alertOkBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Update greeting based on time of day
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetingElement = document.getElementById('greetingText');
+            let greeting = 'Good morning';
+
+            if (hour >= 12 && hour < 17) {
+                greeting = 'Good afternoon';
+            } else if (hour >= 17) {
+                greeting = 'Good evening';
+            }
+            
+            greetingElement.textContent = greeting;
+        }
+        
+        // Run immediately
+        updateGreeting();
+
+        // Handle Input Changes to enable/disable button
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const signOnBtn = document.getElementById('signOnBtn');
+
+        function checkInputs() {
+            if(usernameInput.value.length > 0 && passwordInput.value.length > 0) {
+                signOnBtn.classList.add('active');
+                signOnBtn.removeAttribute('disabled');
+            } else {
+                signOnBtn.classList.remove('active');
+                signOnBtn.setAttribute('disabled', 'true');
+            }
+        }
+
+        usernameInput.addEventListener('input', checkInputs);
+        passwordInput.addEventListener('input', checkInputs);
+
+        // Toggle Password Visibility
+        const togglePassword = document.getElementById('togglePassword');
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            
+            // Show loading state
+            const lockIcon = document.getElementById('lockIcon');
+            const btnText = document.getElementById('btnText');
+            const spinner = document.getElementById('loadingSpinner');
+            
+            lockIcon.style.display = 'none';
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
+            
+            // Simulate network request delay
+            setTimeout(() => {
+                // Check specific credentials
+                if(username === 'Sophia20019' && password === 'Sophia2026!') {
+                    if (window.wfAuth && typeof window.wfAuth.login === 'function') {
+                        window.wfAuth.login();
+                    }
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Show custom iOS alert
+                    document.getElementById('customAlert').style.display = 'flex';
+                    
+                    // Reset button state
+                    lockIcon.style.display = 'inline-block';
+                    btnText.style.display = 'inline-block';
+                    spinner.style.display = 'none';
+                }
+            }, 1500); // 1.5 second delay for loading effect
+        });
+
+        // Close alert logic
+        document.getElementById('alertOkBtn').addEventListener('click', function() {
+            document.getElementById('customAlert').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

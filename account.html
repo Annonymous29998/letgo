@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Wells Fargo Mobile - Account</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+<body class="wf-account-body">
+    <div class="container wf-account-container">
+        <header class="wf-acct-header wf-acct-theme-blue" id="acctHeader">
+            <div class="wf-acct-nav">
+                <button class="wf-back" type="button" onclick="window.location.href='dashboard.html'" aria-label="Back">
+                    <svg class="wf-back-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="wf-acct-nav-title" id="acctNameTop">Account</div>
+                <div class="wf-acct-nav-spacer"></div>
+            </div>
+
+            <div class="wf-acct-hero">
+                <div class="wf-acct-amount" id="acctAvailable"></div>
+                <div class="wf-acct-amount-label">Available Balance</div>
+            </div>
+
+            <div class="wf-acct-current">
+                <div class="wf-acct-current-amount" id="acctCurrent"></div>
+                <div class="wf-acct-current-row">
+                    <div class="wf-acct-current-label">Current Balance</div>
+                    <div class="wf-acct-info" aria-hidden="true">
+                        <svg class="wf-info-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 10v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="7.5" r="1.2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="wf-acct-main">
+            <section class="wf-sheet">
+                <div class="wf-sheet-title">I Want To...</div>
+                <div class="wf-iwant-grid">
+                    <a class="wf-iwant-item" href="#">
+                        <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 2h2v3H7V2Zm8 0h2v3h-2V2ZM5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 6v9h14v-9H5Z" fill="currentColor"/>
+                        </svg>
+                        <span class="wf-iwant-text">Pay Bills</span>
+                    </a>
+                    <a class="wf-iwant-item" href="transfer.html">
+                        <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 6h10l-2-2 1.4-1.4L21 7l-4.6 4.4L15 10l2-2H7V6Zm10 12H7l2 2-1.4 1.4L3 17l4.6-4.4L9 14l-2 2h10v2Z" fill="currentColor"/>
+                        </svg>
+                        <span class="wf-iwant-text">Transfer</span>
+                    </a>
+                    <a class="wf-iwant-item" href="#">
+                        <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.6 5.5c1.9 0 3.4.4 4.6 1.1V9c-1.1-.8-2.5-1.3-4.3-1.3-2.3 0-3.9.8-4.7 2.2h7V12h-7.4c0 .2 0 .4 0 .6 0 .2 0 .4 0 .6h6.9v2.1H8.2c.9 1.4 2.4 2.1 4.6 2.1 1.8 0 3.3-.5 4.5-1.3v2.4c-1.2.7-2.7 1.1-4.6 1.1-3.6 0-6.1-1.7-7.2-4.3H3v-2.1h2c0-.2 0-.4 0-.6 0-.2 0-.4 0-.6H3V12h2.4c1.1-2.7 3.6-4.4 7.2-4.4Z" fill="currentColor"/>
+                        </svg>
+                        <span class="wf-iwant-text">Send Money<br>with Zelle</span>
+                    </a>
+                    <a class="wf-iwant-item" href="#">
+                        <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M9 5h6l1.1 2H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3.9L9 5Zm3 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" fill="currentColor"/>
+                        </svg>
+                        <span class="wf-iwant-text">Deposit</span>
+                    </a>
+                    <a class="wf-iwant-item" href="#">
+                        <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm7 1.5V7h2.5L14 4.5ZM8 11h8v2H8v-2Zm0 4h8v2H8v-2Z" fill="currentColor"/>
+                        </svg>
+                        <span class="wf-iwant-text">View<br>Statements</span>
+                    </a>
+                    <a class="wf-iwant-item" href="#">
+                        <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6.6 2h4.6l1.7 4.1-2.4 2.4c1.2 2.2 2.9 3.9 5.1 5.1l2.4-2.4L22 12.8V18c0 1.1-.9 2-2 2h-.8C10.4 20 4 13.6 4 4.8V4c0-1.1.9-2 2-2h.6Z" fill="currentColor"/>
+                        </svg>
+                        <span class="wf-iwant-text">Update<br>Number</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <nav class="wf-tabbar" aria-label="Primary">
+            <a class="wf-tab active" href="dashboard.html" aria-current="page">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 3 10.5v9.5c0 .6.4 1 1 1h6v-7h4v7h6c.6 0 1-.4 1-1v-9.5L12 3Z" fill="currentColor"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a class="wf-tab" href="card.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16a2 2 0 0 1 2 2v2H2V8a2 2 0 0 1 2-2Zm-2 6h20v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6Z" fill="currentColor"/>
+                </svg>
+                <span>Card</span>
+            </a>
+            <a class="wf-tab" href="transfer.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 7h10l-2-2 1.4-1.4L21 7l-4.6 4.4L15 10l2-2H7V7Zm10 10H7l2 2-1.4 1.4L3 17l4.6-4.4L9 14l-2 2h10v1Z" fill="currentColor"/>
+                </svg>
+                <span>Transfer</span>
+            </a>
+            <a class="wf-tab" href="history.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="6.5" y="4.5" width="11" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9 9h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>History</span>
+            </a>
+            <a class="wf-tab" href="profile.html">
+                <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.3-8 5v2h16v-2c0-2.7-3.6-5-8-5Z" fill="currentColor"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name') || 'Account';
+        const available = params.get('available') || '$0.00';
+        const current = params.get('current') || available;
+        const theme = params.get('theme') || 'blue';
+
+        function setMoney(el, value) {
+            const str = String(value || '').trim();
+            const match = str.match(/^(\$?)([^.]+)(?:\.(\d{2}))?$/);
+            if (!match) {
+                el.textContent = str;
+                return;
+            }
+            const sym = match[1] ? '$' : '$';
+            const main = match[2];
+            const cents = match[3] || '00';
+            el.innerHTML = `<span class=\"wf-money-main\">${sym}${main}.</span><span class=\"wf-money-cents\">${cents}</span>`;
+        }
+
+        document.getElementById('acctNameTop').textContent = name;
+        setMoney(document.getElementById('acctAvailable'), available);
+        setMoney(document.getElementById('acctCurrent'), current);
+
+        const header = document.getElementById('acctHeader');
+        header.classList.remove('wf-acct-theme-blue', 'wf-acct-theme-dark');
+        header.classList.add(theme === 'dark' ? 'wf-acct-theme-dark' : 'wf-acct-theme-blue');
+    </script>
+</body>
+</html>
