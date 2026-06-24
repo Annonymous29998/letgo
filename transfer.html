@@ -35,9 +35,9 @@
                     <label class="wf-label" for="fromAccount">Transfer from</label>
                     <div class="wf-select">
                         <select id="fromAccount">
-                            <option>Wells Fargo Way2Save Checking...3203 - $460,000.00</option>
-                            <option>Everyday Checking...5688 - $0.00</option>
-                            <option>Wells Fargo Way2Save Savings...1902 - $0.00</option>
+                            <option>Wells Fargo Way2Save Checking...3203 - $0.00</option>
+                            <option>Everyday Checking...5688 - $362,756.00</option>
+                            <option>Wells Fargo Way2Save Savings...1902 - $492,158.00</option>
                         </select>
                     </div>
                     <div class="wf-help">
@@ -100,6 +100,18 @@
             </button>
         </div>
 
+        <div id="transferErrorAlert" class="ios-alert-overlay">
+            <div class="ios-alert-box">
+                <div class="ios-alert-content">
+                    <div class="ios-alert-title">Error</div>
+                    <p>We're sorry, we weren't able to complete your request. Please try again.</p>
+                </div>
+                <div class="ios-alert-actions">
+                    <button id="transferRetryBtn" type="button">Retry</button>
+                </div>
+            </div>
+        </div>
+
         <nav class="wf-tabbar" aria-label="Primary">
             <a class="wf-tab" href="dashboard.html">
                 <svg class="wf-tab-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -145,23 +157,6 @@
             amountDecimals.style.display = digitsOnly ? 'block' : 'none';
         }
 
-        function readAmount() {
-            const raw = (amountInput?.value ?? '').trim();
-            const cleaned = raw.replace(/\D/g, '');
-            const value = Number.parseFloat(cleaned);
-            if (!Number.isFinite(value)) return 0;
-            return value;
-        }
-
-        function formatMoney(amount) {
-            return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-        }
-
-        function todayLabel() {
-            const d = new Date();
-            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-        }
-
         const confirmBtn = document.getElementById('confirmBtn');
         const confirmPlane = document.getElementById('confirmPlane');
         const confirmText = document.getElementById('confirmText');
@@ -172,36 +167,20 @@
         confirmBtn.addEventListener('click', () => {
             if (confirmBtn.classList.contains('is-loading')) return;
 
-            const from = document.getElementById('fromAccount')?.value ?? '';
-            const toAccount = document.getElementById('toAccount')?.value?.trim() ?? '';
-            const routing = document.getElementById('routingNumber')?.value?.trim() ?? '';
-            const frequency = document.getElementById('frequency')?.value ?? '';
-            const date = document.getElementById('transferDate')?.value ?? '';
-            const memo = document.getElementById('memo')?.value?.trim() ?? '';
-            const amountValue = readAmount();
-
-            const pending = {
-                createdAt: new Date().toISOString(),
-                dateLabel: todayLabel(),
-                from,
-                toAccount,
-                routing,
-                frequency,
-                date,
-                memo,
-                amount: formatMoney(amountValue),
-                status: 'Pending',
-            };
-
-            localStorage.setItem('pendingTransfer', JSON.stringify(pending));
-
             confirmBtn.classList.add('is-loading');
             confirmText.textContent = 'Confirming...';
             confirmPlane.classList.add('wf-plane-fly');
 
             window.setTimeout(() => {
-                window.location.href = 'history.html?pending=1';
+                confirmBtn.classList.remove('is-loading');
+                confirmText.textContent = 'Click to Confirm';
+                confirmPlane.classList.remove('wf-plane-fly');
+                document.getElementById('transferErrorAlert').style.display = 'flex';
             }, 900);
+        });
+
+        document.getElementById('transferRetryBtn').addEventListener('click', () => {
+            document.getElementById('transferErrorAlert').style.display = 'none';
         });
     </script>
 </body>

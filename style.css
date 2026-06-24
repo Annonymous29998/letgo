@@ -1910,6 +1910,14 @@ body {
     padding: 20px 16px;
 }
 
+.ios-alert-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 8px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 .ios-alert-content p {
     font-size: 14px; /* iOS body text size */
     color: #000;
