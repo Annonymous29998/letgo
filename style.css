@@ -525,6 +525,11 @@ body {
 .wf-greeting {
     margin-top: 18px;
     margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.3em;
+    row-gap: 0;
 }
 
 .wf-greeting-line,
@@ -533,6 +538,11 @@ body {
     font-weight: 300;
     letter-spacing: -0.5px;
     color: rgba(0, 0, 0, 0.7);
+    line-height: 1.15;
+}
+
+.wf-greeting-name {
+    white-space: nowrap;
 }
 
 .wf-home-content {
