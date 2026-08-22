@@ -1164,6 +1164,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    overflow: hidden;
 }
 
 .wf-card-item {
@@ -1173,27 +1174,76 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     padding: 14px;
     display: grid;
-    grid-template-columns: 32px 1fr;
+    grid-template-columns: 64px 1fr;
     gap: 12px;
+    align-items: start;
+    opacity: 0;
+    animation-duration: 0.55s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: forwards;
+}
+
+.wf-card-item:nth-child(odd) {
+    animation-name: wfCardSlideInLeft;
+}
+
+.wf-card-item:nth-child(even) {
+    animation-name: wfCardSlideInRight;
+}
+
+.wf-card-item:nth-child(1) { animation-delay: 0.08s; }
+.wf-card-item:nth-child(2) { animation-delay: 0.22s; }
+.wf-card-item:nth-child(3) { animation-delay: 0.36s; }
+.wf-card-item:nth-child(4) { animation-delay: 0.5s; }
+.wf-card-item:nth-child(5) { animation-delay: 0.64s; }
+
+@keyframes wfCardSlideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-48px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes wfCardSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(48px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wf-card-item {
+        opacity: 1;
+        animation: none;
+        transform: none;
+    }
+}
+
+.wf-card-visual {
+    width: 64px;
+    height: 40px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.wf-card-svg {
+    width: 64px;
+    height: 40px;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
 }
 
 .wf-card-icon {
-    width: 26px;
-    height: 20px;
-    border: 2px solid rgba(0, 0, 0, 0.35);
-    border-radius: 3px;
-    position: relative;
-    margin-top: 2px;
-}
-
-.wf-card-icon::after {
-    content: "";
-    position: absolute;
-    left: 3px;
-    right: 3px;
-    top: 6px;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.35);
+    display: none;
 }
 
 .wf-card-name {
