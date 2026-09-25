@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" as="image" href="images/melissa.png" type="image/png" fetchpriority="high">
     <link rel="preload" as="image" href="images/lynda.png" type="image/png">
+    <link rel="preload" as="image" href="images/vivian.jpg" type="image/jpeg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="app.js?v=lynda3"></script>
+    <script src="app.js?v=vivian5"></script>
 </head>
 <body class="wf-subpage-body">
     <div class="container wf-subpage-container">
@@ -24,15 +25,21 @@
             <div class="wf-profile-card">
                 <div class="wf-profile-title">Your profile</div>
                 <div class="wf-profile-photo">
-                    <img class="wf-profile-img" data-user-photo alt="Profile photo" src="images/melissa.png" width="86" height="86" fetchpriority="high" decoding="sync">
+                    <button type="button" class="wf-profile-photo-btn" id="profilePhotoBtn" aria-label="View profile photo">
+                        <img class="wf-profile-img" data-user-photo alt="Profile photo" src="images/melissa.png" width="86" height="86" fetchpriority="high" decoding="sync">
+                    </button>
                 </div>
                 <div class="wf-profile-table">
                     <div class="wf-profile-label">Name</div>
                     <div class="wf-profile-value" data-user-name>Melissa Santiago</div>
-                    <div class="wf-profile-label">Dob</div>
-                    <div class="wf-profile-value" data-user-dob>06/04/1994</div>
+                    <div class="wf-profile-label" data-hide-if-no-dob>Dob</div>
+                    <div class="wf-profile-value" data-hide-if-no-dob data-user-dob>06/04/1994</div>
                     <div class="wf-profile-label" data-show-if-age style="display:none;">Age</div>
                     <div class="wf-profile-value" data-show-if-age data-user-age style="display:none;"></div>
+                    <div class="wf-profile-label" data-show-if-sex style="display:none;">Sex</div>
+                    <div class="wf-profile-value" data-show-if-sex data-user-sex style="display:none;"></div>
+                    <div class="wf-profile-label" data-show-if-relationship style="display:none;">Relationship status</div>
+                    <div class="wf-profile-value" data-show-if-relationship data-user-relationship style="display:none;"></div>
                     <div class="wf-profile-label" data-hide-if-no-address>Address</div>
                     <div class="wf-profile-value" data-hide-if-no-address data-user-address>4201 S W Young Dr</div>
                     <div class="wf-profile-label">State</div>
@@ -43,6 +50,20 @@
                     <div class="wf-profile-value" data-user-email>sm8565168@gmail.com</div>
                     <div class="wf-profile-label" data-hide-if-no-phone>Phone Number</div>
                     <div class="wf-profile-value wf-link" data-hide-if-no-phone data-user-phone>+1 (419) 318-6043</div>
+                    <div class="wf-profile-label" data-show-if-account-details style="display:none;">Account number</div>
+                    <div class="wf-profile-value wf-copy-row" data-show-if-account-details style="display:none;">
+                        <button type="button" class="wf-copy-btn" data-copy-from="data-user-account-number" aria-label="Copy account number">
+                            <span data-user-account-number></span>
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="wf-profile-label" data-show-if-account-details style="display:none;">Routing number</div>
+                    <div class="wf-profile-value wf-copy-row" data-show-if-account-details style="display:none;">
+                        <button type="button" class="wf-copy-btn" data-copy-from="data-user-routing-number" aria-label="Copy routing number">
+                            <span data-user-routing-number></span>
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                        </button>
+                    </div>
 
                     <div class="wf-profile-label wf-profile-section-label">Cards</div>
                     <div class="wf-profile-cards">
@@ -103,5 +124,76 @@
         </nav>
     </div>
 
+    <div id="photoLightbox" class="wf-photo-lightbox" style="display:none;" hidden>
+        <button type="button" class="wf-photo-lightbox-close" id="photoLightboxClose" aria-label="Close">×</button>
+        <img id="photoLightboxImg" class="wf-photo-lightbox-img" alt="Profile photo">
+    </div>
+
+    <script>
+        document.addEventListener('click', async (event) => {
+            const btn = event.target.closest('.wf-copy-btn');
+            if (!btn) return;
+
+            const attr = btn.getAttribute('data-copy-from');
+            const valueEl = attr ? btn.querySelector('[' + attr + ']') : null;
+            const text = (valueEl?.textContent || '').trim();
+            if (!text) return;
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    const input = document.createElement('textarea');
+                    input.value = text;
+                    document.body.appendChild(input);
+                    input.select();
+                    document.execCommand('copy');
+                    input.remove();
+                }
+                btn.classList.add('is-copied');
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.className = 'fa-solid fa-check';
+                }
+                window.setTimeout(() => {
+                    btn.classList.remove('is-copied');
+                    if (icon) icon.className = 'fa-regular fa-copy';
+                }, 1200);
+            } catch (err) {
+                // ignore
+            }
+        });
+
+        (function () {
+            const openBtn = document.getElementById('profilePhotoBtn');
+            const lightbox = document.getElementById('photoLightbox');
+            const lightboxImg = document.getElementById('photoLightboxImg');
+            const closeBtn = document.getElementById('photoLightboxClose');
+            const profileImg = openBtn ? openBtn.querySelector('[data-user-photo]') : null;
+            if (!openBtn || !lightbox || !lightboxImg || !closeBtn || !profileImg) return;
+
+            function openPhoto() {
+                lightboxImg.src = profileImg.getAttribute('src') || '';
+                lightboxImg.alt = profileImg.getAttribute('alt') || 'Profile photo';
+                lightbox.hidden = false;
+                lightbox.style.display = 'flex';
+            }
+
+            function closePhoto() {
+                lightbox.style.display = 'none';
+                lightbox.hidden = true;
+                lightboxImg.removeAttribute('src');
+            }
+
+            openBtn.addEventListener('click', openPhoto);
+            closeBtn.addEventListener('click', closePhoto);
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) closePhoto();
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && lightbox.style.display === 'flex') closePhoto();
+            });
+        })();
+    </script>
 </body>
 </html>

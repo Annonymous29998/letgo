@@ -11,15 +11,15 @@
     <link rel="preload" as="image" href="images/wells.webp" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="app.js?v=lynda3"></script>
+    <script src="app.js?v=vivian5"></script>
 </head>
 <body class="dashboard-body">
     <div class="container dashboard-container">
         <header class="dashboard-header wf-home-header">
             <div class="wf-topbar">
-                <div class="wf-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>Ask Fargo</span>
+                <div class="wf-search" id="askFargoSearch">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input id="askFargoInput" class="wf-search-input" type="search" placeholder="Ask Fargo" autocomplete="off" enterkeyhint="search" aria-label="Ask Fargo">
                     <div class="wf-fargo-badge" aria-hidden="true">
                         <i class="fa-solid fa-comment-dots"></i>
                     </div>
@@ -27,7 +27,7 @@
                 <div class="wf-actions">
                     <button class="wf-bell" id="notificationBell" type="button" aria-label="Notifications">
                         <i class="fa-regular fa-bell"></i>
-                        <span class="wf-bell-badge">1</span>
+                        <span class="wf-bell-badge" data-restriction-badge>1</span>
                     </button>
                     <button class="wf-signoff" type="button" onclick="window.wfAuth && window.wfAuth.logout ? window.wfAuth.logout() : (window.location.href='index.html')">Sign off</button>
                 </div>
@@ -209,10 +209,27 @@
                     <button id="notificationClose" class="wf-modal-close" type="button" aria-label="Close">×</button>
                 </div>
                 <div class="wf-modal-body">
-                    <div class="wf-modal-title">Account Restricted</div>
-                    <div class="wf-modal-text">Your account has been restricted.</div>
-                    <div class="wf-modal-text">Reason: Unusual transfer activity was detected and outgoing transfers are temporarily blocked.</div>
+                    <div class="wf-modal-title" data-notice-title>Account Restricted</div>
+                    <div class="wf-modal-text" data-notice-line1>Your account has been restricted.</div>
+                    <div class="wf-modal-text" data-notice-line2>Reason: Unusual transfer activity was detected and outgoing transfers are temporarily blocked.</div>
                 </div>
+            </div>
+        </div>
+
+        <div id="askFargoPanel" class="wf-fargo-panel" style="display:none;" hidden>
+            <div class="wf-fargo-panel-card">
+                <div class="wf-fargo-panel-head">
+                    <div class="wf-fargo-panel-title">Ask Fargo</div>
+                    <button type="button" class="wf-fargo-panel-close" id="askFargoClose" aria-label="Close">×</button>
+                </div>
+                <div class="wf-fargo-suggestions" id="askFargoSuggestions">
+                    <button type="button" data-fargo-q="What's my balance?">What's my balance?</button>
+                    <button type="button" data-fargo-q="Show my transactions">Show my transactions</button>
+                    <button type="button" data-fargo-q="Transfer money">Transfer money</button>
+                    <button type="button" data-fargo-q="Go to my cards">Go to my cards</button>
+                    <button type="button" data-fargo-q="Open my profile">Open my profile</button>
+                </div>
+                <div class="wf-fargo-chat" id="askFargoChat" aria-live="polite"></div>
             </div>
         </div>
 
@@ -280,6 +297,109 @@
                 if (event.target === modal) {
                     modal.style.display = 'none';
                 }
+            });
+        })();
+
+        (function () {
+            const input = document.getElementById('askFargoInput');
+            const panel = document.getElementById('askFargoPanel');
+            const chat = document.getElementById('askFargoChat');
+            const closeBtn = document.getElementById('askFargoClose');
+            const search = document.getElementById('askFargoSearch');
+            if (!input || !panel || !chat || !closeBtn || !search) return;
+
+            function openPanel() {
+                panel.hidden = false;
+                panel.style.display = 'flex';
+                search.classList.add('is-active');
+            }
+
+            function closePanel() {
+                panel.hidden = true;
+                panel.style.display = 'none';
+                search.classList.remove('is-active');
+            }
+
+            function addBubble(role, text) {
+                const row = document.createElement('div');
+                row.className = 'wf-fargo-msg wf-fargo-msg-' + role;
+                row.textContent = text;
+                chat.appendChild(row);
+                chat.scrollTop = chat.scrollHeight;
+            }
+
+            function answer(query) {
+                const q = String(query || '').trim();
+                if (!q) return;
+                openPanel();
+                addBubble('user', q);
+
+                const user = window.wfAuth && window.wfAuth.getCurrentUser
+                    ? window.wfAuth.getCurrentUser()
+                    : null;
+                const lower = q.toLowerCase();
+                let reply = '';
+                let href = '';
+
+                if (/balance|available|how much|account/.test(lower)) {
+                    const accounts = (user && user.accounts) || [];
+                    if (accounts.length) {
+                        reply = accounts.map((a) => a.title + ': ' + a.balance).join('\n');
+                    } else {
+                        reply = 'I could not find account balances right now.';
+                    }
+                } else if (/transfer|send money|zelle|wire/.test(lower)) {
+                    reply = 'Opening Transfer so you can move money.';
+                    href = 'transfer.html';
+                } else if (/history|transaction|activity|recent/.test(lower)) {
+                    reply = 'Opening your recent transactions.';
+                    href = 'history.html';
+                } else if (/card|debit|credit/.test(lower)) {
+                    reply = 'Opening your cards.';
+                    href = 'card.html';
+                } else if (/profile|personal|address|email|phone|routing|account number/.test(lower)) {
+                    reply = 'Opening your profile.';
+                    href = 'profile.html';
+                } else if (/help|hello|hi|hey/.test(lower)) {
+                    reply = 'Hi' + (user ? ', ' + (user.firstName || user.name) : '') + '. Ask about balances, transfers, cards, history, or your profile.';
+                } else {
+                    reply = 'I can help with balances, transfers, cards, transactions, and profile details. Try one of the suggestions above.';
+                }
+
+                window.setTimeout(() => {
+                    addBubble('bot', reply);
+                    if (href) {
+                        window.setTimeout(() => {
+                            window.location.href = href;
+                        }, 700);
+                    }
+                }, 250);
+
+                input.value = '';
+            }
+
+            input.addEventListener('focus', openPanel);
+            search.addEventListener('click', () => {
+                openPanel();
+                input.focus();
+            });
+
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    answer(input.value);
+                }
+            });
+
+            closeBtn.addEventListener('click', closePanel);
+            panel.addEventListener('click', (event) => {
+                if (event.target === panel) closePanel();
+            });
+
+            document.querySelectorAll('[data-fargo-q]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    answer(btn.getAttribute('data-fargo-q'));
+                });
             });
         })();
     </script>

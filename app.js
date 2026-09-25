@@ -35,6 +35,7 @@
       cardBalance: '$802,751.00',
       spendingBalance: '$590,603.00',
       showSpendingCard: true,
+      showRestrictionNotice: true,
       historyExtras: [],
     },
     lynda: {
@@ -59,6 +60,7 @@
       cardBalance: '$3,750.00',
       spendingBalance: '$0.00',
       showSpendingCard: false,
+      showRestrictionNotice: true,
       historyExtras: [
         {
           date: 'Sep 24, 2026',
@@ -4997,6 +4999,2291 @@
 
 
     },
+    vivian: {
+      id: 'vivian',
+      username: 'Vivian1997@',
+      password: 'Vivian$1997',
+      name: 'Vivian Jasmine Yu',
+      firstName: 'Vivian Jasmine Yu',
+      dob: '',
+      sex: 'Female',
+      relationship: 'Single',
+      address: '11616 Ruthelen St',
+      state: 'CA',
+      zip: '90047',
+      email: 'vivianjasmineyu40@gmail.com',
+      phone: '+1 (939) 232-0311',
+      photo: 'images/vivian.jpg',
+      since: 'Since 2021',
+      showAddress: true,
+      accountNumber: '4859201743',
+      routingNumber: '121000248',
+      accounts: [
+        { title: 'Everyday Checking...1743', balance: '$650.73', theme: 'dark', dot: 'wf-dot-black' },
+      ],
+      cardBalance: '$650.73',
+      spendingBalance: '$0.00',
+      showSpendingCard: false,
+      showRestrictionNotice: false,
+      historyExtras: [
+        {
+          date: 'Sep 24, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.30'
+        },
+        {
+          date: 'Sep 24, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Sep 23, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$22.62'
+        },
+        {
+          date: 'Sep 23, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$62.80'
+        },
+        {
+          date: 'Sep 22, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.08'
+        },
+        {
+          date: 'Sep 22, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.80'
+        },
+        {
+          date: 'Sep 21, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$42.79'
+        },
+        {
+          date: 'Sep 21, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$67.48'
+        },
+        {
+          date: 'Sep 20, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Sep 20, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Sep 19, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$30.75'
+        },
+        {
+          date: 'Sep 19, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Sep 18, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$47.23'
+        },
+        {
+          date: 'Sep 18, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$92.60'
+        },
+        {
+          date: 'Sep 17, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$22.30'
+        },
+        {
+          date: 'Sep 17, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$40.00'
+        },
+        {
+          date: 'Sep 16, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$115.45'
+        },
+        {
+          date: 'Sep 16, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$6.62'
+        },
+        {
+          date: 'Sep 15, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$14.46'
+        },
+        {
+          date: 'Sep 15, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$16.70'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$12.72'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$22.93'
+        },
+        {
+          date: 'Sep 13, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$35.52'
+        },
+        {
+          date: 'Sep 13, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$30.21'
+        },
+        {
+          date: 'Sep 12, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Sep 12, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$17.70'
+        },
+        {
+          date: 'Sep 11, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Sep 11, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$99.35'
+        },
+        {
+          date: 'Sep 10, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$51.80'
+        },
+        {
+          date: 'Sep 10, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$11.70'
+        },
+        {
+          date: 'Sep 9, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$54.40'
+        },
+        {
+          date: 'Sep 9, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$20.82'
+        },
+        {
+          date: 'Sep 8, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$7.58'
+        },
+        {
+          date: 'Sep 8, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$50.48'
+        },
+        {
+          date: 'Sep 7, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Sep 7, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$21.10'
+        },
+        {
+          date: 'Sep 6, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$53.20'
+        },
+        {
+          date: 'Sep 6, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Sep 5, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$14.88'
+        },
+        {
+          date: 'Sep 5, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$29.05'
+        },
+        {
+          date: 'Sep 4, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$52.44'
+        },
+        {
+          date: 'Sep 4, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$43.53'
+        },
+        {
+          date: 'Sep 3, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Sep 3, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$21.30'
+        },
+        {
+          date: 'Sep 2, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Sep 2, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$111.95'
+        },
+        {
+          date: 'Sep 1, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$73.40'
+        },
+        {
+          date: 'Sep 1, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.86'
+        },
+        {
+          date: 'Aug 31, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.80'
+        },
+        {
+          date: 'Aug 31, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$34.49'
+        },
+        {
+          date: 'Aug 31, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 31, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Aug 31, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$46.00'
+        },
+        {
+          date: 'Aug 31, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Aug 30, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$13.44'
+        },
+        {
+          date: 'Aug 30, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$24.97'
+        },
+        {
+          date: 'Aug 29, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$41.16'
+        },
+        {
+          date: 'Aug 29, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$34.65'
+        },
+        {
+          date: 'Aug 28, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Aug 28, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$18.90'
+        },
+        {
+          date: 'Aug 27, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 27, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$103.55'
+        },
+        {
+          date: 'Aug 26, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$59.00'
+        },
+        {
+          date: 'Aug 26, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.42'
+        },
+        {
+          date: 'Aug 25, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$59.80'
+        },
+        {
+          date: 'Aug 25, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$22.98'
+        },
+        {
+          date: 'Aug 24, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$7.94'
+        },
+        {
+          date: 'Aug 24, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.40'
+        },
+        {
+          date: 'Aug 23, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 23, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 22, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$56.80'
+        },
+        {
+          date: 'Aug 22, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Aug 21, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$15.60'
+        },
+        {
+          date: 'Aug 21, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$31.09'
+        },
+        {
+          date: 'Aug 20, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$58.08'
+        },
+        {
+          date: 'Aug 20, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$47.97'
+        },
+        {
+          date: 'Aug 19, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Aug 19, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$22.50'
+        },
+        {
+          date: 'Aug 18, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 18, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$116.15'
+        },
+        {
+          date: 'Aug 17, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$64.00'
+        },
+        {
+          date: 'Aug 17, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$67.48'
+        },
+        {
+          date: 'Aug 17, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$18.37'
+        },
+        {
+          date: 'Aug 17, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Aug 17, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Aug 17, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Aug 16, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$22.93'
+        },
+        {
+          date: 'Aug 16, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 15, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$30.21'
+        },
+        {
+          date: 'Aug 15, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$65.00'
+        },
+        {
+          date: 'Aug 14, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$17.70'
+        },
+        {
+          date: 'Aug 14, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$64.30'
+        },
+        {
+          date: 'Aug 13, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$99.35'
+        },
+        {
+          date: 'Aug 13, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.24'
+        },
+        {
+          date: 'Aug 12, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$11.70'
+        },
+        {
+          date: 'Aug 12, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 11, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$20.82'
+        },
+        {
+          date: 'Aug 11, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$59.80'
+        },
+        {
+          date: 'Aug 10, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$50.48'
+        },
+        {
+          date: 'Aug 10, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.20'
+        },
+        {
+          date: 'Aug 9, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$41.16'
+        },
+        {
+          date: 'Aug 9, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$62.78'
+        },
+        {
+          date: 'Aug 8, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Aug 8, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Aug 7, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$29.05'
+        },
+        {
+          date: 'Aug 7, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 6, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$43.53'
+        },
+        {
+          date: 'Aug 6, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$86.60'
+        },
+        {
+          date: 'Aug 5, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$21.30'
+        },
+        {
+          date: 'Aug 5, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$80.50'
+        },
+        {
+          date: 'Aug 4, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$111.95'
+        },
+        {
+          date: 'Aug 4, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$9.32'
+        },
+        {
+          date: 'Aug 3, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$56.20'
+        },
+        {
+          date: 'Aug 3, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Aug 3, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Aug 3, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Aug 3, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Aug 3, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$18.70'
+        },
+        {
+          date: 'Aug 2, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Aug 2, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$102.85'
+        },
+        {
+          date: 'Aug 1, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$57.80'
+        },
+        {
+          date: 'Aug 1, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.30'
+        },
+        {
+          date: 'Jul 31, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$34.65'
+        },
+        {
+          date: 'Jul 31, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$72.20'
+        },
+        {
+          date: 'Jul 30, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$18.90'
+        },
+        {
+          date: 'Jul 30, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$69.70'
+        },
+        {
+          date: 'Jul 29, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$103.55'
+        },
+        {
+          date: 'Jul 29, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.60'
+        },
+        {
+          date: 'Jul 28, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.42'
+        },
+        {
+          date: 'Jul 28, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 27, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$22.98'
+        },
+        {
+          date: 'Jul 27, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$63.40'
+        },
+        {
+          date: 'Jul 26, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.40'
+        },
+        {
+          date: 'Jul 26, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.92'
+        },
+        {
+          date: 'Jul 25, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jul 25, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$68.42'
+        },
+        {
+          date: 'Jul 24, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jul 24, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Jul 23, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$31.09'
+        },
+        {
+          date: 'Jul 23, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 22, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$47.97'
+        },
+        {
+          date: 'Jul 22, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$93.80'
+        },
+        {
+          date: 'Jul 21, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$22.50'
+        },
+        {
+          date: 'Jul 21, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$40.90'
+        },
+        {
+          date: 'Jul 20, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$48.56'
+        },
+        {
+          date: 'Jul 20, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$15.48'
+        },
+        {
+          date: 'Jul 20, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$30.75'
+        },
+        {
+          date: 'Jul 20, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Jul 20, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$45.86'
+        },
+        {
+          date: 'Jul 20, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$38.35'
+        },
+        {
+          date: 'Jul 19, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Jul 19, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$19.90'
+        },
+        {
+          date: 'Jul 18, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 18, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$107.05'
+        },
+        {
+          date: 'Jul 17, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$65.00'
+        },
+        {
+          date: 'Jul 17, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.02'
+        },
+        {
+          date: 'Jul 16, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$64.30'
+        },
+        {
+          date: 'Jul 16, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$24.78'
+        },
+        {
+          date: 'Jul 15, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.24'
+        },
+        {
+          date: 'Jul 15, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$54.00'
+        },
+        {
+          date: 'Jul 14, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 14, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$21.23'
+        },
+        {
+          date: 'Jul 13, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$59.80'
+        },
+        {
+          date: 'Jul 13, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jul 12, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.20'
+        },
+        {
+          date: 'Jul 12, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$32.79'
+        },
+        {
+          date: 'Jul 11, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$62.78'
+        },
+        {
+          date: 'Jul 11, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$51.67'
+        },
+        {
+          date: 'Jul 10, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Jul 10, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$23.50'
+        },
+        {
+          date: 'Jul 9, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 9, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$119.65'
+        },
+        {
+          date: 'Jul 8, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$86.60'
+        },
+        {
+          date: 'Jul 8, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.18'
+        },
+        {
+          date: 'Jul 7, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$80.50'
+        },
+        {
+          date: 'Jul 7, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$13.26'
+        },
+        {
+          date: 'Jul 6, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 6, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$61.00'
+        },
+        {
+          date: 'Jul 6, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$57.14'
+        },
+        {
+          date: 'Jul 6, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Jul 6, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$33.91'
+        },
+        {
+          date: 'Jul 6, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$71.00'
+        },
+        {
+          date: 'Jul 5, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$18.70'
+        },
+        {
+          date: 'Jul 5, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$68.80'
+        },
+        {
+          date: 'Jul 4, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$102.85'
+        },
+        {
+          date: 'Jul 4, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.54'
+        },
+        {
+          date: 'Jul 3, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.30'
+        },
+        {
+          date: 'Jul 3, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jul 2, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$22.62'
+        },
+        {
+          date: 'Jul 2, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$62.80'
+        },
+        {
+          date: 'Jul 1, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.08'
+        },
+        {
+          date: 'Jul 1, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.80'
+        },
+        {
+          date: 'Jun 30, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.42'
+        },
+        {
+          date: 'Jun 30, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jun 29, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$22.98'
+        },
+        {
+          date: 'Jun 29, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$63.40'
+        },
+        {
+          date: 'Jun 28, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.40'
+        },
+        {
+          date: 'Jun 28, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.92'
+        },
+        {
+          date: 'Jun 27, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$47.50'
+        },
+        {
+          date: 'Jun 27, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$68.42'
+        },
+        {
+          date: 'Jun 26, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jun 26, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Jun 25, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$31.09'
+        },
+        {
+          date: 'Jun 25, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jun 24, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$47.97'
+        },
+        {
+          date: 'Jun 24, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$93.80'
+        },
+        {
+          date: 'Jun 23, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$22.50'
+        },
+        {
+          date: 'Jun 23, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$40.90'
+        },
+        {
+          date: 'Jun 22, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$14.70'
+        },
+        {
+          date: 'Jun 22, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$49.60'
+        },
+        {
+          date: 'Jun 22, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jun 22, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Jun 22, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$45.86'
+        },
+        {
+          date: 'Jun 22, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$38.35'
+        },
+        {
+          date: 'Jun 21, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Jun 21, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$19.90'
+        },
+        {
+          date: 'Jun 20, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jun 20, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$107.05'
+        },
+        {
+          date: 'Jun 19, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$65.00'
+        },
+        {
+          date: 'Jun 19, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.02'
+        },
+        {
+          date: 'Jun 18, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$64.30'
+        },
+        {
+          date: 'Jun 18, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$24.78'
+        },
+        {
+          date: 'Jun 17, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.24'
+        },
+        {
+          date: 'Jun 17, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$54.00'
+        },
+        {
+          date: 'Jun 16, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jun 16, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jun 15, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$59.80'
+        },
+        {
+          date: 'Jun 15, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jun 14, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.20'
+        },
+        {
+          date: 'Jun 14, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$32.79'
+        },
+        {
+          date: 'Jun 13, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$62.78'
+        },
+        {
+          date: 'Jun 13, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$51.67'
+        },
+        {
+          date: 'Jun 12, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Jun 12, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$23.50'
+        },
+        {
+          date: 'Jun 11, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jun 11, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$119.65'
+        },
+        {
+          date: 'Jun 10, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$86.60'
+        },
+        {
+          date: 'Jun 10, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.18'
+        },
+        {
+          date: 'Jun 9, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$80.50'
+        },
+        {
+          date: 'Jun 9, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$13.26'
+        },
+        {
+          date: 'Jun 8, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$6.56'
+        },
+        {
+          date: 'Jun 8, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$45.04'
+        },
+        {
+          date: 'Jun 8, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$14.16'
+        },
+        {
+          date: 'Jun 8, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Jun 8, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$33.91'
+        },
+        {
+          date: 'Jun 8, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$71.00'
+        },
+        {
+          date: 'Jun 7, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$18.70'
+        },
+        {
+          date: 'Jun 7, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$68.80'
+        },
+        {
+          date: 'Jun 6, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$102.85'
+        },
+        {
+          date: 'Jun 6, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.54'
+        },
+        {
+          date: 'Jun 5, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$12.30'
+        },
+        {
+          date: 'Jun 5, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Jun 4, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$22.62'
+        },
+        {
+          date: 'Jun 4, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$62.80'
+        },
+        {
+          date: 'Jun 3, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.08'
+        },
+        {
+          date: 'Jun 3, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.80'
+        },
+        {
+          date: 'Jun 2, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$52.08'
+        },
+        {
+          date: 'Jun 2, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$67.48'
+        },
+        {
+          date: 'Jun 1, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Jun 1, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'May 31, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$63.40'
+        },
+        {
+          date: 'May 31, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'May 30, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.92'
+        },
+        {
+          date: 'May 30, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$34.83'
+        },
+        {
+          date: 'May 29, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$68.42'
+        },
+        {
+          date: 'May 29, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$19.11'
+        },
+        {
+          date: 'May 28, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'May 28, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$14.70'
+        },
+        {
+          date: 'May 27, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 27, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$88.85'
+        },
+        {
+          date: 'May 26, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$93.80'
+        },
+        {
+          date: 'May 26, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.90'
+        },
+        {
+          date: 'May 25, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$14.34'
+        },
+        {
+          date: 'May 25, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 25, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$58.00'
+        },
+        {
+          date: 'May 25, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'May 25, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$26.67'
+        },
+        {
+          date: 'May 25, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 24, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$38.35'
+        },
+        {
+          date: 'May 24, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$78.20'
+        },
+        {
+          date: 'May 23, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$19.90'
+        },
+        {
+          date: 'May 23, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$74.20'
+        },
+        {
+          date: 'May 22, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$107.05'
+        },
+        {
+          date: 'May 22, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.90'
+        },
+        {
+          date: 'May 21, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.02'
+        },
+        {
+          date: 'May 21, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 20, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$24.78'
+        },
+        {
+          date: 'May 20, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$66.40'
+        },
+        {
+          date: 'May 19, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$54.00'
+        },
+        {
+          date: 'May 19, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$17.52'
+        },
+        {
+          date: 'May 18, 2026',
+          merchant: 'RENT PAYMENT',
+          type: 'Bill Payment',
+          amount: '-$1,200.00'
+        },
+        {
+          date: 'May 18, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$73.12'
+        },
+        {
+          date: 'May 17, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'May 17, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'May 16, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$32.79'
+        },
+        {
+          date: 'May 16, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 15, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$51.67'
+        },
+        {
+          date: 'May 15, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$39.80'
+        },
+        {
+          date: 'May 14, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$23.50'
+        },
+        {
+          date: 'May 14, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$45.40'
+        },
+        {
+          date: 'May 13, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$119.65'
+        },
+        {
+          date: 'May 13, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$6.98'
+        },
+        {
+          date: 'May 12, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.18'
+        },
+        {
+          date: 'May 12, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 11, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$74.20'
+        },
+        {
+          date: 'May 11, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$28.74'
+        },
+        {
+          date: 'May 11, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$43.00'
+        },
+        {
+          date: 'May 11, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'May 11, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 11, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$110.55'
+        },
+        {
+          date: 'May 10, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$71.00'
+        },
+        {
+          date: 'May 10, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.62'
+        },
+        {
+          date: 'May 9, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$68.80'
+        },
+        {
+          date: 'May 9, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$26.58'
+        },
+        {
+          date: 'May 8, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.54'
+        },
+        {
+          date: 'May 8, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$55.60'
+        },
+        {
+          date: 'May 7, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 7, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$56.20'
+        },
+        {
+          date: 'May 6, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$62.80'
+        },
+        {
+          date: 'May 6, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'May 5, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$16.80'
+        },
+        {
+          date: 'May 5, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$34.49'
+        },
+        {
+          date: 'May 4, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$67.48'
+        },
+        {
+          date: 'May 4, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$18.37'
+        },
+        {
+          date: 'May 3, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'May 3, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$14.50'
+        },
+        {
+          date: 'May 2, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'May 2, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$88.15'
+        },
+        {
+          date: 'May 1, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$92.60'
+        },
+        {
+          date: 'May 1, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.78'
+        },
+        {
+          date: 'Apr 30, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Apr 30, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$14.70'
+        },
+        {
+          date: 'Apr 29, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Apr 29, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$88.85'
+        },
+        {
+          date: 'Apr 28, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$93.80'
+        },
+        {
+          date: 'Apr 28, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.90'
+        },
+        {
+          date: 'Apr 27, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$107.05'
+        },
+        {
+          date: 'Apr 27, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.90'
+        },
+        {
+          date: 'Apr 27, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$57.52'
+        },
+        {
+          date: 'Apr 27, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+        {
+          date: 'Apr 27, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$26.67'
+        },
+        {
+          date: 'Apr 27, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Apr 26, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$38.35'
+        },
+        {
+          date: 'Apr 26, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$78.20'
+        },
+        {
+          date: 'Apr 25, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$19.90'
+        },
+        {
+          date: 'Apr 25, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$74.20'
+        },
+        {
+          date: 'Apr 24, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$107.05'
+        },
+        {
+          date: 'Apr 24, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$8.90'
+        },
+        {
+          date: 'Apr 23, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.02'
+        },
+        {
+          date: 'Apr 23, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Apr 22, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$24.78'
+        },
+        {
+          date: 'Apr 22, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$66.40'
+        },
+        {
+          date: 'Apr 21, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$54.00'
+        },
+        {
+          date: 'Apr 21, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$17.52'
+        },
+        {
+          date: 'Apr 20, 2026',
+          merchant: 'RENT PAYMENT',
+          type: 'Bill Payment',
+          amount: '-$1,200.00'
+        },
+        {
+          date: 'Apr 20, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$73.12'
+        },
+        {
+          date: 'Apr 19, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$22.99'
+        },
+        {
+          date: 'Apr 19, 2026',
+          merchant: 'VERIZON WIRELESS',
+          type: 'Bill Payment',
+          amount: '-$79.99'
+        },
+        {
+          date: 'Apr 18, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$32.79'
+        },
+        {
+          date: 'Apr 18, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Apr 17, 2026',
+          merchant: 'AMAZON.COM',
+          type: 'Card Purchase',
+          amount: '-$51.67'
+        },
+        {
+          date: 'Apr 17, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$39.80'
+        },
+        {
+          date: 'Apr 16, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$23.50'
+        },
+        {
+          date: 'Apr 16, 2026',
+          merchant: 'WHOLE FOODS',
+          type: 'Card Purchase',
+          amount: '-$45.40'
+        },
+        {
+          date: 'Apr 15, 2026',
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$119.65'
+        },
+        {
+          date: 'Apr 15, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$6.98'
+        },
+        {
+          date: 'Apr 14, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$9.18'
+        },
+        {
+          date: 'Apr 14, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Apr 13, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$65.00'
+        },
+        {
+          date: 'Apr 13, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.02'
+        },
+        {
+          date: 'Apr 13, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$11.99'
+        },
+        {
+          date: 'Apr 13, 2026',
+          merchant: 'PAYROLL DEPOSIT',
+          type: 'Direct Deposit',
+          amount: '$2,500.00'
+        },
+      ],
+    },
   };
 
   function currentPage() {
@@ -5138,15 +7425,20 @@
 
     setText('[data-user-name]', user.name);
     setText('[data-user-greeting-name]', user.firstName);
-    setText('[data-user-dob]', user.dob);
+    setText('[data-user-dob]', user.dob || '');
     setText('[data-user-email]', user.email);
     setText('[data-user-state]', user.state);
     setText('[data-user-since]', user.since);
     setText('[data-user-spending-name]', user.name + ' Spending Cards');
-    setText('[data-user-card-checking]', user.name + "'s Checking...5688");
+    const checkingLast4 = (user.accountNumber || '5688').slice(-4);
+    setText('[data-user-card-checking]', user.name + "'s Checking..." + checkingLast4);
     setText('[data-user-card-savings]', user.name + "'s Savings...1902");
     setText('[data-user-card-balance]', user.cardBalance || '$0.00');
     setText('[data-user-spending-balance]', user.spendingBalance || '$0.00');
+    setText('[data-user-sex]', user.sex || '');
+    setText('[data-user-relationship]', user.relationship || '');
+    setText('[data-user-account-number]', user.accountNumber || '');
+    setText('[data-user-routing-number]', user.routingNumber || '');
 
     if (user.phone) setText('[data-user-phone]', user.phone);
     if (user.address) setText('[data-user-address]', user.address);
@@ -5166,6 +7458,22 @@
       el.style.display = user.age ? '' : 'none';
     });
 
+    document.querySelectorAll('[data-hide-if-no-dob]').forEach((el) => {
+      el.style.display = user.dob ? '' : 'none';
+    });
+
+    document.querySelectorAll('[data-show-if-sex]').forEach((el) => {
+      el.style.display = user.sex ? '' : 'none';
+    });
+
+    document.querySelectorAll('[data-show-if-relationship]').forEach((el) => {
+      el.style.display = user.relationship ? '' : 'none';
+    });
+
+    document.querySelectorAll('[data-show-if-account-details]').forEach((el) => {
+      el.style.display = user.accountNumber || user.routingNumber ? '' : 'none';
+    });
+
     document.querySelectorAll('[data-hide-if-no-phone]').forEach((el) => {
       el.style.display = user.phone ? '' : 'none';
     });
@@ -5179,10 +7487,31 @@
       el.style.display = allowed === user.id ? '' : 'none';
     });
 
-    // Melissa uses shared HTML history; Lynda uses historyExtras only.
+    // Melissa uses shared HTML history; other users use historyExtras only.
     const sharedHistory = document.getElementById('sharedHistory');
     if (sharedHistory) {
       sharedHistory.style.display = user.id === 'melissa' ? '' : 'none';
+    }
+
+    const showRestriction = user.showRestrictionNotice !== false;
+    document.querySelectorAll('[data-restriction-badge]').forEach((el) => {
+      el.style.display = showRestriction ? '' : 'none';
+    });
+    const noticeTitle = document.querySelector('[data-notice-title]');
+    const noticeLine1 = document.querySelector('[data-notice-line1]');
+    const noticeLine2 = document.querySelector('[data-notice-line2]');
+    if (noticeTitle && noticeLine1 && noticeLine2) {
+      if (showRestriction) {
+        noticeTitle.textContent = 'Account Restricted';
+        noticeLine1.textContent = 'Your account has been restricted.';
+        noticeLine2.textContent = 'Reason: Unusual transfer activity was detected and outgoing transfers are temporarily blocked.';
+        noticeLine2.style.display = '';
+      } else {
+        noticeTitle.textContent = 'Notifications';
+        noticeLine1.textContent = 'You have no new account alerts.';
+        noticeLine2.textContent = '';
+        noticeLine2.style.display = 'none';
+      }
     }
 
     renderAccounts(user);
