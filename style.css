@@ -551,6 +551,12 @@ body {
     gap: 14px;
 }
 
+#userAccountsList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
 .wf-acct-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
@@ -1587,7 +1593,7 @@ body {
 }
 
 .wf-history-right-pending {
-    color: #b00000;
+    color: #8a8a8e;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1597,7 +1603,7 @@ body {
 .wf-history-status {
     font-size: 12px;
     font-weight: 700;
-    color: #b00000;
+    color: #8a8a8e;
 }
 
 .wf-history-right-success {

@@ -11,6 +11,7 @@
     <link rel="preload" as="image" href="images/bg.jpg" type="image/jpeg" fetchpriority="high">
     <link rel="prefetch" as="image" href="images/wells.webp" type="image/webp">
     <link rel="prefetch" as="image" href="images/melissa.png" type="image/png">
+    <link rel="prefetch" as="image" href="images/lynda.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -199,10 +200,13 @@
             
             // Simulate network request delay
             setTimeout(() => {
-                // Check specific credentials
-                if(username === 'Santiago1994' && password === 'Santiamelissa2020$') {
+                const matched = window.wfAuth && typeof window.wfAuth.findUserByCredentials === 'function'
+                    ? window.wfAuth.findUserByCredentials(username, password)
+                    : null;
+
+                if (matched) {
                     if (window.wfAuth && typeof window.wfAuth.login === 'function') {
-                        window.wfAuth.login();
+                        window.wfAuth.login(matched.id);
                     }
                     window.location.href = 'dashboard.html';
                 } else {
