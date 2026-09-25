@@ -5014,7 +5014,7 @@
       email: 'vivianjasmineyu40@gmail.com',
       phone: '+1 (939) 232-0311',
       photo: 'images/vivian.jpg',
-      since: 'Since 2021',
+      since: 'Since 2026',
       showAddress: true,
       accountNumber: '4859201743',
       routingNumber: '121000248',
@@ -5028,159 +5028,213 @@
       historyExtras: [
         {
           date: 'Sep 24, 2026',
-          merchant: 'MCDONALD\'S',
+          merchant: 'STARBUCKS',
           type: 'Card Purchase',
-          amount: '-$12.30'
+          amount: '-$5.78'
         },
         {
           date: 'Sep 24, 2026',
-          merchant: 'APPLE.COM/BILL',
-          type: 'Subscription',
-          amount: '-$11.99'
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$13.87'
+        },
+        {
+          date: 'Sep 24, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$42.37'
         },
         {
           date: 'Sep 23, 2026',
-          merchant: 'CVS PHARMACY',
+          merchant: 'WHOLE FOODS',
           type: 'Card Purchase',
-          amount: '-$22.62'
+          amount: '-$42.37'
         },
         {
           date: 'Sep 23, 2026',
-          merchant: 'TRADER JOE\'S',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$36.98'
+        },
+        {
+          date: 'Sep 23, 2026',
+          merchant: 'AMAZON.COM',
           type: 'Card Purchase',
-          amount: '-$62.80'
+          amount: '-$26.96'
         },
         {
           date: 'Sep 22, 2026',
-          merchant: 'SHELL OIL',
-          type: 'Fuel Purchase',
-          amount: '-$52.08'
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$42.37'
         },
         {
           date: 'Sep 22, 2026',
           merchant: 'CHIPOTLE',
           type: 'Card Purchase',
-          amount: '-$16.80'
+          amount: '-$13.87'
+        },
+        {
+          date: 'Sep 22, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$13.87'
         },
         {
           date: 'Sep 21, 2026',
-          merchant: 'AMAZON.COM',
-          type: 'Card Purchase',
-          amount: '-$42.79'
-        },
-        {
-          date: 'Sep 21, 2026',
-          merchant: 'TARGET',
-          type: 'Card Purchase',
-          amount: '-$67.48'
-        },
-        {
-          date: 'Sep 20, 2026',
-          merchant: 'NETFLIX',
-          type: 'Subscription',
-          amount: '-$22.99'
-        },
-        {
-          date: 'Sep 20, 2026',
-          merchant: 'VERIZON WIRELESS',
-          type: 'Bill Payment',
-          amount: '-$79.99'
-        },
-        {
-          date: 'Sep 19, 2026',
           merchant: 'DOORDASH',
           type: 'Card Purchase',
-          amount: '-$30.75'
+          amount: '-$26.96'
+        },
+        {
+          date: 'Sep 21, 2026',
+          merchant: 'UBER',
+          type: 'Card Purchase',
+          amount: '-$13.87'
+        },
+        {
+          date: 'Sep 21, 2026',
+          merchant: 'NETFLIX',
+          type: 'Subscription',
+          amount: '-$17.71'
+        },
+        {
+          date: 'Sep 20, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$42.37'
+        },
+        {
+          date: 'Sep 20, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$36.98'
+        },
+        {
+          date: 'Sep 20, 2026',
+          merchant: 'SPOTIFY',
+          type: 'Subscription',
+          amount: '-$9.24'
         },
         {
           date: 'Sep 19, 2026',
-          merchant: 'SPOTIFY',
-          type: 'Subscription',
-          amount: '-$11.99'
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$42.37'
         },
         {
-          date: 'Sep 18, 2026',
+          date: 'Sep 19, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$5.78'
+        },
+        {
+          date: 'Sep 19, 2026',
           merchant: 'AMAZON.COM',
           type: 'Card Purchase',
-          amount: '-$47.23'
+          amount: '-$26.96'
         },
         {
           date: 'Sep 18, 2026',
-          merchant: 'WALMART',
-          type: 'Card Purchase',
-          amount: '-$92.60'
+          merchant: 'ELECTRIC COMPANY',
+          type: 'Bill Payment',
+          amount: '-$84.74'
         },
         {
-          date: 'Sep 17, 2026',
+          date: 'Sep 18, 2026',
           merchant: 'UBER',
           type: 'Card Purchase',
-          amount: '-$22.30'
+          amount: '-$13.87'
+        },
+        {
+          date: 'Sep 18, 2026',
+          merchant: 'MCDONALD\'S',
+          type: 'Card Purchase',
+          amount: '-$13.87'
         },
         {
           date: 'Sep 17, 2026',
           merchant: 'WHOLE FOODS',
           type: 'Card Purchase',
-          amount: '-$40.00'
+          amount: '-$42.37'
         },
         {
-          date: 'Sep 16, 2026',
-          merchant: 'ELECTRIC COMPANY',
-          type: 'Bill Payment',
-          amount: '-$115.45'
-        },
-        {
-          date: 'Sep 16, 2026',
-          merchant: 'STARBUCKS',
-          type: 'Card Purchase',
-          amount: '-$6.62'
-        },
-        {
-          date: 'Sep 15, 2026',
-          merchant: 'MCDONALD\'S',
-          type: 'Card Purchase',
-          amount: '-$14.46'
-        },
-        {
-          date: 'Sep 15, 2026',
-          merchant: 'APPLE.COM/BILL',
-          type: 'Subscription',
-          amount: '-$11.99'
-        },
-        {
-          date: 'Sep 14, 2026',
-          merchant: 'NETFLIX',
-          type: 'Subscription',
-          amount: '-$22.99'
-        },
-        {
-          date: 'Sep 14, 2026',
+          date: 'Sep 17, 2026',
           merchant: 'VERIZON WIRELESS',
           type: 'Bill Payment',
-          amount: '-$79.99'
+          amount: '-$61.63'
+        },
+        {
+          date: 'Sep 17, 2026',
+          merchant: 'CHIPOTLE',
+          type: 'Card Purchase',
+          amount: '-$13.87'
+        },
+        {
+          date: 'Sep 16, 2026',
+          merchant: 'WALMART',
+          type: 'Card Purchase',
+          amount: '-$42.37'
+        },
+        {
+          date: 'Sep 16, 2026',
+          merchant: 'SHELL OIL',
+          type: 'Fuel Purchase',
+          amount: '-$36.98'
+        },
+        {
+          date: 'Sep 16, 2026',
+          merchant: 'APPLE.COM/BILL',
+          type: 'Subscription',
+          amount: '-$9.24'
+        },
+        {
+          date: 'Sep 15, 2026',
+          merchant: 'TARGET',
+          type: 'Card Purchase',
+          amount: '-$42.37'
+        },
+        {
+          date: 'Sep 15, 2026',
+          merchant: 'DOORDASH',
+          type: 'Card Purchase',
+          amount: '-$26.96'
+        },
+        {
+          date: 'Sep 15, 2026',
+          merchant: 'STARBUCKS',
+          type: 'Card Purchase',
+          amount: '-$5.78'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'RENT PAYMENT',
+          type: 'Bill Payment',
+          amount: '-$924.43'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'TRADER JOE\'S',
+          type: 'Card Purchase',
+          amount: '-$42.37'
         },
         {
           date: 'Sep 14, 2026',
           merchant: 'UBER',
           type: 'Card Purchase',
-          amount: '-$16.70'
+          amount: '-$13.87'
+        },
+        {
+          date: 'Sep 14, 2026',
+          merchant: 'CVS PHARMACY',
+          type: 'Card Purchase',
+          amount: '-$13.87'
         },
         {
           date: 'Sep 14, 2026',
           merchant: 'PAYROLL DEPOSIT',
           type: 'Direct Deposit',
           amount: '$2,500.00'
-        },
-        {
-          date: 'Sep 14, 2026',
-          merchant: 'CHIPOTLE',
-          type: 'Card Purchase',
-          amount: '-$12.72'
-        },
-        {
-          date: 'Sep 14, 2026',
-          merchant: 'DOORDASH',
-          type: 'Card Purchase',
-          amount: '-$22.93'
         },
         {
           date: 'Sep 13, 2026',
