@@ -7420,7 +7420,11 @@
   }
 
   function applyProfile() {
-    if (!isLoggedIn()) return getCurrentUser();
+    if (!isLoggedIn()) {
+      document.documentElement.classList.add('wf-profile-ready');
+      document.documentElement.classList.remove('wf-auth-pending');
+      return getCurrentUser();
+    }
     const user = getCurrentUser();
 
     setText('[data-user-name]', user.name);
@@ -7518,6 +7522,9 @@
     renderTransferAccounts(user);
     renderHistoryExtras(user);
 
+    document.documentElement.classList.add('wf-profile-ready');
+    document.documentElement.classList.remove('wf-auth-pending');
+
     return user;
   }
 
@@ -7533,8 +7540,25 @@
   };
 
   if (PROTECTED_PAGES.has(currentPage())) {
+    document.documentElement.classList.add('wf-auth-pending');
+    if (!document.getElementById('wf-auth-pending-style')) {
+      const style = document.createElement('style');
+      style.id = 'wf-auth-pending-style';
+      style.textContent =
+        'html.wf-auth-pending body{opacity:0!important;}' +
+        'html.wf-profile-ready body{opacity:1!important;}';
+      document.head.appendChild(style);
+    }
     requireAuth();
   }
 
-  document.addEventListener('DOMContentLoaded', applyProfile);
+  function bootProfile() {
+    applyProfile();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootProfile);
+  } else {
+    bootProfile();
+  }
 })();
