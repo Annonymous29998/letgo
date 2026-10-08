@@ -1,0 +1,5 @@
+supabase/.temp/
+.env
+.env.local
+.js/supabase-config.local.js
+js/supabase-config.local.js

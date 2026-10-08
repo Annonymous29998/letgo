@@ -11,7 +11,10 @@
     <link rel="preload" as="image" href="images/wells.webp" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="app.js?v=vivian7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/db.js?v=proxy1"></script>
+    <script src="app.js?v=proxy1"></script>
 </head>
 <body class="dashboard-body">
     <div class="container dashboard-container">
@@ -42,13 +45,13 @@
         <main class="accounts-list wf-home-content">
             <div id="userAccountsList"></div>
 
-            <a class="wf-open-new" href="#">
+            <a class="wf-open-new wf-demo-disabled" href="#" data-demo-disabled data-demo-msg="Account opening is not available in this demo.">
                 <span class="wf-open-plus" aria-hidden="true"><i class="fa-solid fa-plus"></i></span>
                 <span>Open new account</span>
             </a>
 
             <div class="wf-tile-list">
-                <a class="wf-tile" href="#">
+                <a class="wf-tile wf-demo-disabled" href="#" data-demo-disabled data-demo-msg="LifeSync is not available in this demo.">
                     <span class="wf-tile-icon" aria-hidden="true">
                         <svg class="wf-tile-svg" viewBox="0 0 36 36">
                             <defs>
@@ -67,7 +70,7 @@
                         <span class="wf-tile-sub">Set and track your money goals</span>
                     </span>
                 </a>
-                <a class="wf-tile" href="#">
+                <a class="wf-tile wf-demo-disabled" href="#" data-demo-disabled data-demo-msg="Credit score details are not available in this demo.">
                     <span class="wf-tile-icon" aria-hidden="true">
                         <svg class="wf-tile-svg" viewBox="0 0 36 36">
                             <circle cx="18" cy="18" r="17" fill="#e5e5ea"/>
@@ -79,10 +82,10 @@
                     </span>
                     <span class="wf-tile-text">
                         <span class="wf-tile-title">View your FICO® Credit Score</span>
-                        <span class="wf-tile-sub">Updated Mar 4, 2026</span>
+                        <span class="wf-tile-sub">Demo preview only</span>
                     </span>
                 </a>
-                <a class="wf-tile" href="#">
+                <a class="wf-tile wf-demo-disabled" href="#" data-demo-disabled data-demo-msg="Rewards offers are not available in this demo.">
                     <span class="wf-tile-icon" aria-hidden="true">
                         <svg class="wf-tile-svg" viewBox="0 0 36 36">
                             <circle cx="18" cy="18" r="17" fill="#ffe9a8"/>
@@ -91,7 +94,7 @@
                     </span>
                     <span class="wf-tile-text">
                         <span class="wf-tile-title">Earn 20k bonus points</span>
-                        <span class="wf-tile-sub">Updated</span>
+                        <span class="wf-tile-sub">Demo preview only</span>
                     </span>
                 </a>
             </div>
@@ -181,9 +184,9 @@
                     <button id="notificationClose" class="wf-modal-close" type="button" aria-label="Close">×</button>
                 </div>
                 <div class="wf-modal-body">
-                    <div class="wf-modal-title" data-notice-title>Account Restricted</div>
-                    <div class="wf-modal-text" data-notice-line1>Your account has been restricted.</div>
-                    <div class="wf-modal-text" data-notice-line2>Reason: Unusual transfer activity was detected and outgoing transfers are temporarily blocked.</div>
+                    <div class="wf-modal-title" data-notice-title>Account Notice</div>
+                    <div class="wf-modal-text" data-notice-line1>You have no new account alerts.</div>
+                    <button type="button" class="wf-modal-action" data-notice-button id="notificationOkBtn" style="display:none;">OK</button>
                 </div>
             </div>
         </div>
@@ -261,14 +264,16 @@
                 modal.style.display = 'flex';
             });
 
-            closeBtn.addEventListener('click', () => {
+            function closeModal() {
                 modal.style.display = 'none';
-            });
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            const okBtn = document.getElementById('notificationOkBtn');
+            if (okBtn) okBtn.addEventListener('click', closeModal);
 
             modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
+                if (event.target === modal) closeModal();
             });
         })();
 

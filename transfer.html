@@ -10,7 +10,10 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="app.js?v=vivian7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/db.js?v=proxy1"></script>
+    <script src="app.js?v=proxy1"></script>
 </head>
 <body class="wf-subpage-body">
     <div class="container wf-subpage-container">
@@ -50,7 +53,7 @@
                     <label class="wf-label">Transfer to</label>
                     <div class="wf-grid-2">
                         <input id="toAccount" class="wf-input" type="text" inputmode="numeric" placeholder="Account Number">
-                        <input id="routingNumber" class="wf-input" type="text" inputmode="numeric" placeholder="Routine Number">
+                        <input id="routingNumber" class="wf-input" type="text" inputmode="numeric" placeholder="Routing Number">
                     </div>
                 </div>
 
@@ -103,11 +106,11 @@
         <div id="transferErrorAlert" class="ios-alert-overlay">
             <div class="ios-alert-box">
                 <div class="ios-alert-content">
-                    <div class="ios-alert-title">Error</div>
-                    <p>We're sorry, we weren't able to complete your request. Please try again.</p>
+                    <div class="ios-alert-title" data-transfer-error-title>Error</div>
+                    <p data-transfer-error-message>We're sorry, we weren't able to complete your request. Please try again.</p>
                 </div>
                 <div class="ios-alert-actions">
-                    <button id="transferRetryBtn" type="button">Retry</button>
+                    <button id="transferRetryBtn" type="button" data-transfer-error-button>Retry</button>
                 </div>
             </div>
         </div>
@@ -164,12 +167,37 @@
         amountInput.addEventListener('input', syncAmountDisplay);
         syncAmountDisplay();
 
-        confirmBtn.addEventListener('click', () => {
+        confirmBtn.addEventListener('click', async () => {
             if (confirmBtn.classList.contains('is-loading')) return;
 
             confirmBtn.classList.add('is-loading');
             confirmText.textContent = 'Confirming...';
             confirmPlane.classList.add('wf-plane-fly');
+
+            const dollars = (amountInput?.value || '0').replace(/\D/g, '') || '0';
+            const amount = dollars + '.00';
+            const fromAccount = document.getElementById('fromAccount')?.value || '';
+            const toAccount = document.getElementById('toAccount')?.value || '';
+            const memo = document.getElementById('memo')?.value || '';
+            const user = window.wfAuth && window.wfAuth.getCurrentUser
+                ? window.wfAuth.getCurrentUser()
+                : null;
+
+            try {
+                if (user && window.wfDb && typeof window.wfDb.recordTransfer === 'function') {
+                    const updated = await window.wfDb.recordTransfer(user.id, {
+                        fromAccount,
+                        toAccount,
+                        amount,
+                        memo,
+                    });
+                    if (updated && window.wfAuth.applyProfile) {
+                        window.wfAuth.applyProfile();
+                    }
+                }
+            } catch (err) {
+                // Still show the transfer modal even if persistence fails.
+            }
 
             window.setTimeout(() => {
                 confirmBtn.classList.remove('is-loading');

@@ -8,7 +8,11 @@
     <meta name="referrer" content="no-referrer">
     <title>Wells Fargo Mobile - Account</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js?v=vivian7"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/db.js?v=proxy1"></script>
+    <script src="app.js?v=proxy1"></script>
 </head>
 <body class="wf-account-body">
     <div class="container wf-account-container">
@@ -47,7 +51,7 @@
             <section class="wf-sheet">
                 <div class="wf-sheet-title">I Want To...</div>
                 <div class="wf-iwant-grid">
-                    <a class="wf-iwant-item" href="#">
+                    <a class="wf-iwant-item wf-demo-disabled" href="#" data-demo-disabled data-demo-msg="Bill pay is not available in this demo.">
                         <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M7 2h2v3H7V2Zm8 0h2v3h-2V2ZM5 5h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 6v9h14v-9H5Z" fill="currentColor"/>
                         </svg>
@@ -59,25 +63,25 @@
                         </svg>
                         <span class="wf-iwant-text">Transfer</span>
                     </a>
-                    <a class="wf-iwant-item" href="#">
+                    <a class="wf-iwant-item" href="transfer.html">
                         <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12.6 5.5c1.9 0 3.4.4 4.6 1.1V9c-1.1-.8-2.5-1.3-4.3-1.3-2.3 0-3.9.8-4.7 2.2h7V12h-7.4c0 .2 0 .4 0 .6 0 .2 0 .4 0 .6h6.9v2.1H8.2c.9 1.4 2.4 2.1 4.6 2.1 1.8 0 3.3-.5 4.5-1.3v2.4c-1.2.7-2.7 1.1-4.6 1.1-3.6 0-6.1-1.7-7.2-4.3H3v-2.1h2c0-.2 0-.4 0-.6 0-.2 0-.4 0-.6H3V12h2.4c1.1-2.7 3.6-4.4 7.2-4.4Z" fill="currentColor"/>
                         </svg>
                         <span class="wf-iwant-text">Send Money<br>with Zelle</span>
                     </a>
-                    <a class="wf-iwant-item" href="#">
+                    <a class="wf-iwant-item wf-demo-disabled" href="#" data-demo-disabled data-demo-msg="Mobile deposit is not available in this demo.">
                         <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M9 5h6l1.1 2H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3.9L9 5Zm3 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" fill="currentColor"/>
                         </svg>
                         <span class="wf-iwant-text">Deposit</span>
                     </a>
-                    <a class="wf-iwant-item" href="#">
+                    <a class="wf-iwant-item" href="history.html">
                         <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm7 1.5V7h2.5L14 4.5ZM8 11h8v2H8v-2Zm0 4h8v2H8v-2Z" fill="currentColor"/>
                         </svg>
                         <span class="wf-iwant-text">View<br>Statements</span>
                     </a>
-                    <a class="wf-iwant-item" href="#">
+                    <a class="wf-iwant-item" href="profile.html">
                         <svg class="wf-iwant-icon" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M6.6 2h4.6l1.7 4.1-2.4 2.4c1.2 2.2 2.9 3.9 5.1 5.1l2.4-2.4L22 12.8V18c0 1.1-.9 2-2 2h-.8C10.4 20 4 13.6 4 4.8V4c0-1.1.9-2 2-2h.6Z" fill="currentColor"/>
                         </svg>

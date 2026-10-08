@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Wellsfargo Admin</title>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('wf_admin_token')) {
+          document.documentElement.classList.add('admin-session-pending');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/admin.css?v=switch2" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="confirmModal" class="confirm-overlay" hidden>
+    <div class="confirm-box" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <h3 id="confirmTitle">Are you sure?</h3>
+      <p id="confirmMessage">This action cannot be undone.</p>
+      <div class="confirm-actions">
+        <button type="button" class="btn btn-secondary" id="confirmNoBtn">No</button>
+        <button type="button" class="btn btn-danger" id="confirmYesBtn">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="dashboardView" class="dashboard-view">
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+    <aside class="sidebar" id="adminSidebar">
+      <div class="sidebar-top">
+        <div class="sidebar-brand">
+          <img src="../images/wells.png" alt="Wells Fargo" />
+          <div class="sidebar-brand-text">
+            <strong>Wellsfargo Admin</strong>
+            <span>Control Center</span>
+          </div>
+        </div>
+        <button type="button" id="sidebarToggle" class="sidebar-toggle" aria-label="Collapse sidebar">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-section="overview" data-label="Overview">
+          <i class="fas fa-chart-pie"></i><span class="nav-label">Overview</span>
+        </button>
+        <button class="nav-item" data-section="users" data-label="Customers">
+          <i class="fas fa-users"></i><span class="nav-label">Customers</span>
+        </button>
+        <button class="nav-item" data-section="editor" data-label="Edit Customer">
+          <i class="fas fa-user-pen"></i><span class="nav-label">Edit Customer</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="../index.html" class="btn btn-ghost sidebar-action" data-label="Open App">
+          <i class="fas fa-external-link-alt"></i><span class="nav-label">Open App</span>
+        </a>
+        <button id="logoutBtn" class="btn btn-danger-ghost sidebar-action" data-label="Log Out" type="button">
+          <i class="fas fa-sign-out-alt"></i><span class="nav-label">Log Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <div id="adminBootLoader" class="admin-boot-loader">
+        <div class="admin-boot-spinner"></div>
+        <p>Loading dashboard...</p>
+      </div>
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <button type="button" id="mobileMenuBtn" class="btn btn-secondary mobile-menu-btn" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div>
+            <h2 id="sectionTitle">Overview</h2>
+            <p id="sectionSubtitle">Manage bank customers, balances, and history</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-secondary" id="refreshBtn" type="button">
+            <i class="fas fa-rotate"></i> Refresh
+          </button>
+          <button class="btn btn-primary" id="newCustomerBtn" type="button">
+            <i class="fas fa-user-plus"></i> New customer
+          </button>
+        </div>
+      </header>
+
+      <section class="content-section active" data-section="overview">
+        <div class="stats-grid">
+          <div class="stat-card"><span>Total customers</span><strong id="statTotal">0</strong></div>
+          <div class="stat-card"><span>Online now</span><strong id="statOnline">0</strong></div>
+          <div class="stat-card"><span>With photos</span><strong id="statPhotos">0</strong></div>
+          <div class="stat-card"><span>Total balances</span><strong id="statBalances">$0.00</strong></div>
+          <div class="stat-card"><span>Accounts</span><strong id="statAccounts">0</strong></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3>Recent customers</h3>
+              <p class="muted-note">Latest records from Supabase</p>
+            </div>
+            <button class="btn btn-secondary" type="button" data-goto="users">View all</button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Username</th>
+                  <th>Status</th>
+                  <th>Last seen</th>
+                  <th>Device</th>
+                  <th>Balance</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="recentTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" data-section="users">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3>All customers</h3>
+              <p class="muted-note" id="userCountLabel">0 customers</p>
+            </div>
+            <button class="btn btn-secondary" id="createUserBtn" type="button">
+              <i class="fas fa-user-plus"></i> Create user
+            </button>
+          </div>
+
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <div class="search-box">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="search" id="userSearch" placeholder="Search name, username, email…" />
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <label class="page-size">
+                Rows
+                <select id="pageSize">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Username</th>
+                  <th>Status</th>
+                  <th>Last seen</th>
+                  <th>Device</th>
+                  <th>Password</th>
+                  <th>Email</th>
+                  <th>Balance</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="usersTable"></tbody>
+            </table>
+          </div>
+
+          <div class="pagination" id="pagination">
+            <div class="pagination-meta" id="paginationMeta">Showing 0–0 of 0</div>
+            <div class="pagination-pages" id="paginationPages"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" data-section="editor">
+        <div class="card editor-switcher-card">
+          <div class="card-header">
+            <div>
+              <h3>Switch customer</h3>
+              <p class="muted-note">Pick who you are editing without going back to the list</p>
+            </div>
+            <div class="user-switcher">
+              <label for="activeUserSelect">Editing user</label>
+              <select id="activeUserSelect">
+                <option value="">New customer…</option>
+              </select>
+            </div>
+          </div>
+          <div class="editor-user-cards" id="editorUserCards"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 id="editorTitle">Create customer</h3>
+              <p class="muted-note" id="editorPresence">Login credentials, profile photo, balances, and transaction history</p>
+            </div>
+            <button class="btn btn-secondary" type="button" data-goto="users">Back to list</button>
+          </div>
+
+          <form id="customerForm">
+            <input type="hidden" id="editId" />
+
+            <details class="editor-fold" open>
+              <summary>Login credentials</summary>
+              <div class="editor-fold-body">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="fullName">Full name</label>
+                    <input id="fullName" required placeholder="Customer full name" />
+                  </div>
+                  <div class="field">
+                    <label for="firstName">Display name</label>
+                    <input id="firstName" placeholder="Greeting name" />
+                  </div>
+                  <div class="field">
+                    <label for="username">Username</label>
+                    <input id="username" required autocomplete="off" placeholder="Sign-in username" />
+                  </div>
+                  <div class="field">
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                      <input id="password" type="password" required autocomplete="new-password" spellcheck="false" placeholder="Customer sign-in password" />
+                      <button type="button" class="password-toggle" data-target="password" aria-label="Show password">
+                        <i class="fas fa-eye"></i>
+                      </button>
+                    </div>
+                    <p class="muted-note">Use the eye icon to show or hide the password.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="editor-fold">
+              <summary>Profile details</summary>
+              <div class="editor-fold-body">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" autocomplete="off" placeholder="Email address" />
+                  </div>
+                  <div class="field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" placeholder="(555) 000-0000" />
+                  </div>
+                  <div class="field">
+                    <label for="dob">Date of birth</label>
+                    <input id="dob" placeholder="06/04/1994" />
+                  </div>
+                  <div class="field">
+                    <label for="age">Age</label>
+                    <input id="age" placeholder="32" />
+                  </div>
+                  <div class="field">
+                    <label for="sex">Sex</label>
+                    <input id="sex" placeholder="Female" />
+                  </div>
+                  <div class="field">
+                    <label for="relationship">Relationship</label>
+                    <input id="relationship" placeholder="Single" />
+                  </div>
+                  <div class="field full">
+                    <label for="address">Address</label>
+                    <input id="address" placeholder="Street address" />
+                  </div>
+                  <div class="field">
+                    <label for="state">State</label>
+                    <input id="state" placeholder="TX" />
+                  </div>
+                  <div class="field">
+                    <label for="zip">Zip</label>
+                    <input id="zip" placeholder="76542" />
+                  </div>
+                  <div class="field">
+                    <label for="memberSince">Since label</label>
+                    <input id="memberSince" placeholder="Since 2026" />
+                  </div>
+                  <div class="field">
+                    <label for="accountNumber">Account number</label>
+                    <input id="accountNumber" placeholder="Account number" />
+                  </div>
+                  <div class="field">
+                    <label for="routingNumber">Routing number</label>
+                    <input id="routingNumber" value="121000248" />
+                  </div>
+                  <div class="field">
+                    <label for="cardBalance">Card balance</label>
+                    <input id="cardBalance" placeholder="$0.00" />
+                  </div>
+                  <div class="field">
+                    <label for="spendingBalance">Spending balance</label>
+                    <input id="spendingBalance" placeholder="$0.00" />
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="editor-fold">
+              <summary>Profile photo</summary>
+              <div class="editor-fold-body">
+                <div class="photo-box">
+                  <img id="photoPreview" class="photo-preview" src="../images/wells.png" alt="Preview" />
+                  <div>
+                    <input type="file" id="photoFile" accept="image/*" />
+                    <p class="muted-note">JPG/PNG, uploaded to Supabase Storage</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="editor-fold">
+              <summary>Accounts</summary>
+              <div class="editor-fold-body">
+                <div class="accounts-editor" id="accountsEditor"></div>
+                <button type="button" class="btn btn-secondary" id="addAccountBtn" style="margin-top:10px">
+                  <i class="fas fa-plus"></i> Add account
+                </button>
+              </div>
+            </details>
+
+            <details class="editor-fold">
+              <summary>Display options</summary>
+              <div class="editor-fold-body">
+                <div class="form-grid">
+                  <div class="field">
+                    <label><input type="checkbox" id="showAddress" checked /> Show address on profile</label>
+                  </div>
+                  <div class="field">
+                    <label><input type="checkbox" id="showSpending" /> Show spending card</label>
+                  </div>
+                  <div class="field">
+                    <label><input type="checkbox" id="showRestriction" /> Show restriction notice</label>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="editor-fold">
+              <summary>Transfer / pending modal</summary>
+              <div class="editor-fold-body">
+                <p class="muted-note">
+                  Wells transfer popup. When restriction is on, it shows after Confirm.
+                  Use <code>{name}</code> and <code>{fee}</code> in the message if needed.
+                </p>
+                <div class="restriction-editor">
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="restrictionTitle">Title</label>
+                      <input id="restrictionTitle" placeholder="Error" />
+                    </div>
+                    <div class="field">
+                      <label for="restrictionButton">Button</label>
+                      <input id="restrictionButton" placeholder="Retry" />
+                    </div>
+                    <div class="field">
+                      <label for="settlementFee">Settlement fee ($)</label>
+                      <input id="settlementFee" type="number" step="0.01" placeholder="0" />
+                    </div>
+                    <div class="field full">
+                      <label for="restrictionMessage">Message</label>
+                      <textarea id="restrictionMessage" rows="4" placeholder="We're sorry, we weren't able to complete your request. Please try again."></textarea>
+                    </div>
+                    <input type="hidden" id="restrictionGreeting" value="" />
+                    <input type="hidden" id="restrictionFeeText" value="" />
+                    <input type="hidden" id="restrictionSupport" value="" />
+                    <input type="hidden" id="transferErrorTitle" value="Error" />
+                    <input type="hidden" id="transferErrorButton" value="Retry" />
+                    <textarea id="transferErrorMessage" hidden></textarea>
+                  </div>
+
+                  <div class="restriction-preview" aria-live="polite">
+                    <div class="restriction-preview-label">Live preview (Wells transfer modal)</div>
+                    <div class="wf-admin-ios-alert">
+                      <div class="wf-admin-ios-alert-content">
+                        <div class="wf-admin-ios-alert-title" id="restrictionPreviewTitle">Error</div>
+                        <p id="restrictionPreviewBody">We're sorry, we weren't able to complete your request. Please try again.</p>
+                      </div>
+                      <div class="wf-admin-ios-alert-actions">
+                        <button type="button" id="restrictionPreviewButton" disabled>Retry</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="editor-fold">
+              <summary>Transaction history</summary>
+              <div class="editor-fold-body">
+                <div class="card-header" style="padding:0;margin-bottom:12px;border:0">
+                  <div>
+                    <p class="muted-note" id="historyCountLabel">
+                      Auto-fills from the Since year through today. Edit any row below.
+                    </p>
+                  </div>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
+                    <button type="button" class="btn btn-secondary" id="generateHistoryBtn">
+                      <i class="fas fa-wand-magic-sparkles"></i> Generate from Since
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="addTxnBtn">
+                      <i class="fas fa-plus"></i> Add transaction
+                    </button>
+                  </div>
+                </div>
+
+                <div class="toolbar">
+                  <div class="toolbar-left">
+                    <div class="search-box">
+                      <i class="fas fa-magnifying-glass"></i>
+                      <input type="search" id="txnSearch" placeholder="Filter merchant, type, date…" />
+                    </div>
+                  </div>
+                  <div class="toolbar-right">
+                    <label class="page-size">
+                      Rows
+                      <select id="txnPageSize">
+                        <option value="10">10</option>
+                        <option value="25" selected>25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="table-wrap">
+                  <table class="data-table" id="historyTable">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Merchant</th>
+                        <th>Category</th>
+                        <th>Credit / Debit</th>
+                        <th>Amount</th>
+                        <th>Pending</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="historyTableBody"></tbody>
+                  </table>
+                </div>
+                <div class="pagination">
+                  <div class="pagination-meta" id="txnPaginationMeta">Showing 0–0 of 0</div>
+                  <div class="pagination-pages" id="txnPaginationPages"></div>
+                </div>
+
+                <details style="margin-top:14px">
+                  <summary class="muted-note" style="cursor:pointer">Advanced: raw JSON</summary>
+                  <div class="field full" style="margin-top:10px">
+                    <textarea id="historyJson" rows="8" spellcheck="false"></textarea>
+                  </div>
+                </details>
+              </div>
+            </details>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+              <button type="submit" class="btn btn-primary" id="saveBtn">
+                <i class="fas fa-floppy-disk"></i> Save customer
+              </button>
+              <button type="button" class="btn btn-danger" id="deleteBtn" hidden>
+                <i class="fas fa-trash"></i> Delete
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/db.js?v=proxy1"></script>
+  <script src="js/history-generator.js?v=daily3"></script>
+  <script src="js/admin-app.js?v=proxy1"></script>
+</body>
+</html>
