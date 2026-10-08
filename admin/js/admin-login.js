@@ -18,7 +18,7 @@
   if (!window.wfDb || !window.wfDb.configured()) {
     warnEl.style.display = 'block';
   } else if (await window.wfDb.requireAdminSession()) {
-    window.location.replace('app.html');
+    window.location.replace('/admin/app.html');
     return;
   }
 
@@ -27,7 +27,7 @@
     errorEl.textContent = '';
 
     if (!window.wfDb.configured()) {
-      errorEl.textContent = 'Configure Supabase in js/supabase-config.js first.';
+      errorEl.textContent = 'Server API is not configured. Set SUPABASE_URL and SUPABASE_ANON_KEY on Vercel.';
       return;
     }
 
@@ -41,7 +41,7 @@
         errorEl.textContent = 'Invalid admin username or password.';
         return;
       }
-      window.location.href = 'app.html';
+      window.location.href = '/admin/app.html';
     } catch (err) {
       errorEl.textContent = err.message || 'Login failed.';
     } finally {
