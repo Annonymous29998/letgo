@@ -599,6 +599,7 @@ revoke all on public.admin_sessions from anon, authenticated;
 
 grant execute on function public.authenticate_bank_user(text, text, text) to anon, authenticated;
 grant execute on function public.bank_user_heartbeat(text, text) to anon, authenticated;
+grant execute on function public.bank_user_logout(text) to anon, authenticated;
 grant execute on function public.bank_customer_profile_json(public.bank_customers) to anon, authenticated;
 grant execute on function public.get_bank_customer(text) to anon, authenticated;
 grant execute on function public.bank_user_record_transfer(text, jsonb) to anon, authenticated;
