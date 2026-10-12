@@ -581,16 +581,13 @@ function currentPage() {
       document.body.appendChild(panel);
     }
 
-    document.querySelectorAll('.wf-red-header, .wf-acct-header, .wf-home-header .wf-actions').forEach(function (header) {
-      if (header.classList.contains('wf-actions')) return;
+    // Subpages (profile/history/card/transfer): bell only — Ask Fargo stays on Home.
+    document.querySelectorAll('.wf-red-header, .wf-acct-header').forEach(function (header) {
       if (header.querySelector('.wf-subpage-actions')) return;
       if (header.querySelector('#notificationBell')) return;
       const actions = document.createElement('div');
       actions.className = 'wf-subpage-actions';
       actions.innerHTML =
-        '<button class="wf-ask-chip" type="button" data-open-fargo aria-label="Ask Fargo">' +
-          '<i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>Ask Fargo</span>' +
-        '</button>' +
         '<button class="wf-bell" id="notificationBell" type="button" aria-label="Notifications">' +
           '<i class="fa-regular fa-bell"></i>' +
           '<span class="wf-bell-badge" data-restriction-badge style="display:none">1</span>' +
@@ -602,9 +599,6 @@ function currentPage() {
       const fab = document.createElement('div');
       fab.className = 'wf-floating-actions';
       fab.innerHTML =
-        '<button class="wf-ask-chip" type="button" data-open-fargo aria-label="Ask Fargo">' +
-          '<i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span>Ask Fargo</span>' +
-        '</button>' +
         '<button class="wf-bell" id="notificationBell" type="button" aria-label="Notifications">' +
           '<i class="fa-regular fa-bell"></i>' +
           '<span class="wf-bell-badge" data-restriction-badge style="display:none">1</span>' +
