@@ -66,6 +66,11 @@ function currentPage() {
 
   function logout() {
     stopPresenceHeartbeat();
+    const id = getUserId();
+    if (id && window.wfDb && typeof window.wfDb.logoutBankUser === 'function') {
+      // Fire-and-forget: clear last_active_at so admin shows Offline right away
+      window.wfDb.logoutBankUser(id).catch(function () {});
+    }
     if (window.wfDb && typeof window.wfDb.unsubscribeCustomerUpdates === 'function') {
       window.wfDb.unsubscribeCustomerUpdates();
     }

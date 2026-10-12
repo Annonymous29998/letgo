@@ -1,6 +1,7 @@
 const ALLOWED_RPCS = new Set([
   'authenticate_bank_user',
   'bank_user_heartbeat',
+  'bank_user_logout',
   'get_bank_customer',
   'bank_user_record_transfer',
   'admin_login',

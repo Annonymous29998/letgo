@@ -212,6 +212,18 @@
     return !!data;
   }
 
+  async function logoutBankUser(customerId) {
+    if (!configured() || !customerId) return false;
+    try {
+      const data = await callRpc('bank_user_logout', {
+        p_customer_id: customerId,
+      });
+      return !!data;
+    } catch (e) {
+      return false;
+    }
+  }
+
   async function getBankCustomer(customerId) {
     if (!configured() || !customerId) return null;
     const data = await callRpc('get_bank_customer', {
@@ -421,6 +433,7 @@
     readCachedProfile,
     loginBankUser,
     heartbeat,
+    logoutBankUser,
     getBankCustomer,
     recordTransfer,
     subscribeCustomerUpdates,
