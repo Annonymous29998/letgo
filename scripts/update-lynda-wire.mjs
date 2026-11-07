@@ -1,6 +1,6 @@
 /**
- * Lynda: keep $120k wire available, replace post-wire spend with daily
- * expenses through today, and set balance from $3,750 + wire − expenses.
+ * Lynda: $120k wire dated today (available), varied daily expenses through today,
+ * balance = $3,750 + wire − those expenses.
  *
  * Usage: node scripts/update-lynda-wire.mjs
  */
@@ -181,55 +181,70 @@ function parseHistDate(label) {
   return Number.isNaN(t) ? null : t;
 }
 
-/** Small realistic spend Sep 25 → today (inclusive). */
-function buildPostWireExpenses(wireDateLabel, today = new Date()) {
-  const start = new Date(parseHistDate(wireDateLabel) || Date.parse('Sep 24, 2026'));
+/** Varied small spend — almost no Spotify. */
+const CATALOG = [
+  ['STARBUCKS', 'Card Purchase', 4.75, 8.5],
+  ['UBER', 'Card Purchase', 12.4, 24.8],
+  ['TARGET', 'Card Purchase', 18.99, 52.4],
+  ['SHELL OIL', 'Fuel Purchase', 28.5, 55],
+  ['CHIPOTLE', 'Card Purchase', 11.5, 18.75],
+  ['AMAZON.COM', 'Card Purchase', 9.99, 36.2],
+  ["MCDONALD'S", 'Card Purchase', 7.2, 14.6],
+  ['CVS PHARMACY', 'Card Purchase', 8.4, 22.9],
+  ['WHOLE FOODS', 'Card Purchase', 24.5, 68],
+  ['DOORDASH', 'Card Purchase', 16.2, 34.5],
+  ['TRADER JOE\'S', 'Card Purchase', 22.0, 58],
+  ['WALMART', 'Card Purchase', 15.5, 64],
+  ['CHEVRON', 'Fuel Purchase', 30.0, 58],
+  ['UBER EATS', 'Card Purchase', 14.5, 32],
+  ['APPLE.COM/BILL', 'Subscription', 0.99, 11.99],
+  ['NETFLIX', 'Subscription', 15.49, 15.49],
+  ['HULU', 'Subscription', 9.99, 17.99],
+  ['ELECTRIC COMPANY', 'Bill Payment', 45, 95],
+  ['VERIZON WIRELESS', 'Bill Payment', 55, 85],
+  ['COSTCO GAS', 'Fuel Purchase', 32, 62],
+  ['PANERA BREAD', 'Card Purchase', 10.5, 19],
+  ['HOME DEPOT', 'Card Purchase', 18, 74],
+];
+
+function buildExpenses(fromExclusive, throughInclusive) {
+  const start = new Date(fromExclusive);
   start.setDate(start.getDate() + 1);
   start.setHours(12, 0, 0, 0);
 
-  const end = new Date(today);
+  const end = new Date(throughInclusive);
   end.setHours(12, 0, 0, 0);
 
-  const catalog = [
-    ['STARBUCKS', 'Card Purchase', 4.75, 8.5],
-    ['UBER', 'Card Purchase', 12.4, 24.8],
-    ['TARGET', 'Card Purchase', 18.99, 52.4],
-    ['SHELL OIL', 'Fuel Purchase', 28.5, 55],
-    ['CHIPOTLE', 'Card Purchase', 11.5, 18.75],
-    ['AMAZON.COM', 'Card Purchase', 9.99, 36.2],
-    ["MCDONALD'S", 'Card Purchase', 7.2, 14.6],
-    ['CVS PHARMACY', 'Card Purchase', 8.4, 22.9],
-    ['WHOLE FOODS', 'Card Purchase', 24.5, 68],
-    ['DOORDASH', 'Card Purchase', 16.2, 34.5],
-    ['NETFLIX', 'Subscription', 15.49, 15.49],
-    ['SPOTIFY', 'Subscription', 10.99, 10.99],
-  ];
-
   const items = [];
-  // Deterministic-ish amounts from day index so re-runs stay stable
   let dayIndex = 0;
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1), dayIndex++) {
     const dateLabel = formatDate(d);
-    const perDay = 2 + (dayIndex % 2); // 2 or 3 little expenses
+    const perDay = 2 + (dayIndex % 2);
     for (let i = 0; i < perDay; i++) {
-      const cat = catalog[(dayIndex * 3 + i * 5) % catalog.length];
+      const cat = CATALOG[(dayIndex * 5 + i * 7) % CATALOG.length];
       const [merchant, type, lo, hi] = cat;
       const span = hi - lo;
-      const cents = Math.round((lo + ((dayIndex * 17 + i * 31) % 100) / 100 * span) * 100);
-      const amount = '-$' + (cents / 100).toFixed(2);
-      items.push({ date: dateLabel, merchant, type, amount });
+      const cents = Math.round((lo + (((dayIndex * 17 + i * 31) % 100) / 100) * span) * 100);
+      items.push({
+        date: dateLabel,
+        merchant,
+        type,
+        amount: '-$' + (cents / 100).toFixed(2),
+      });
     }
   }
-  // Newest first
   return items.reverse();
 }
 
-function isOurPriorExpense(item) {
-  // Remove previously injected post-wire spend (Oct 8–12 batch or any debit after wire date)
-  return true;
+function isSyntheticWire(item) {
+  const amt = String(item.amount || '');
+  return /120,?000/.test(amt) && !amt.trim().startsWith('-');
 }
 
 async function main() {
+  const today = new Date();
+  const todayLabel = formatDate(today);
+
   console.log('Logging in as admin…');
   const session = await call('admin_login', {
     p_username: ADMIN_USER,
@@ -246,35 +261,35 @@ async function main() {
   if (!user?.id) throw new Error('Lynda not found');
 
   const hist = Array.isArray(user.historyExtras) ? [...user.historyExtras] : [];
-  let wireIdx = hist.findIndex(
-    (i) => /120,?000/.test(String(i.amount || '')) && !String(i.amount).trim().startsWith('-')
-  );
-  if (wireIdx < 0) throw new Error('Could not find $120,000 incoming wire on Lynda');
 
-  const wire = { ...hist[wireIdx] };
-  delete wire.pending;
-  wire.merchant = 'INCOMING WIRE';
-  wire.type = 'Wire Transfer';
-  wire.amount = '$120,000.00';
-  if (!wire.date) wire.date = 'Sep 24, 2026';
-
-  const wireTs = parseHistDate(wire.date);
-  // Keep history up through the wire (and older). Drop anything newer than the wire
-  // so we can rebuild continuous daily spend through today.
-  const olderOrWire = hist.filter((item, idx) => {
-    if (idx === wireIdx) return false; // re-insert cleaned wire
+  // Drop any existing $120k wire and anything after Sep 24, 2026 (prior synthetic streak)
+  const cutoff = Date.parse('Sep 24, 2026');
+  const older = hist.filter((item) => {
+    if (isSyntheticWire(item)) return false;
     const ts = parseHistDate(item.date);
     if (ts == null) return true;
-    return ts <= wireTs;
+    return ts <= cutoff;
   });
 
-  const postWire = buildPostWireExpenses(wire.date, new Date());
-  const expenseTotal = postWire.reduce((s, e) => s + Math.abs(parseMoney(e.amount)), 0);
+  // Expenses from Sep 25 → today (varied merchants)
+  const expenses = buildExpenses(new Date(cutoff), today);
+  const expenseTotal = expenses.reduce((s, e) => s + Math.abs(parseMoney(e.amount)), 0);
+
+  const wire = {
+    date: todayLabel,
+    merchant: 'INCOMING WIRE',
+    type: 'Wire Transfer',
+    amount: '$120,000.00',
+  };
+
   const newBal = BASE_BEFORE_WIRE + WIRE_AMOUNT - expenseTotal;
   const balStr = formatMoney(newBal);
 
-  // Newest first: expenses, then wire, then older
-  user.historyExtras = [...postWire, wire, ...olderOrWire];
+  // Newest first: today's wire on top, then expenses (newest→oldest), then older history
+  const todaySpend = expenses.filter((e) => e.date === todayLabel);
+  const earlierSpend = expenses.filter((e) => e.date !== todayLabel);
+  user.historyExtras = [wire, ...todaySpend, ...earlierSpend, ...older];
+
   user.cardBalance = balStr;
   if (Array.isArray(user.accounts) && user.accounts[0]) {
     user.accounts = user.accounts.map((a, i) => (i === 0 ? { ...a, balance: balStr } : a));
@@ -284,16 +299,17 @@ async function main() {
     ];
   }
 
+  const merchants = {};
+  for (const e of expenses) merchants[e.merchant] = (merchants[e.merchant] || 0) + 1;
+
   console.log({
-    baseBeforeWire: formatMoney(BASE_BEFORE_WIRE),
-    wire: formatMoney(WIRE_AMOUNT),
-    postWireDays: postWire.length,
+    wireDate: todayLabel,
+    expenseCount: expenses.length,
     expenseTotal: formatMoney(expenseTotal),
     math: `${BASE_BEFORE_WIRE} + ${WIRE_AMOUNT} - ${expenseTotal.toFixed(2)} = ${newBal.toFixed(2)}`,
     newBalance: balStr,
-    historyCount: user.historyExtras.length,
-    newest: user.historyExtras.slice(0, 6),
-    wireEntry: wire,
+    merchantMix: merchants,
+    top: user.historyExtras.slice(0, 10),
   });
 
   const saved = await call('admin_upsert_customer', {
@@ -301,7 +317,11 @@ async function main() {
     p_payload: userToPayload(user),
   });
   const out = normalizeUser(saved);
-  console.log('Saved Lynda:', out?.name, out?.cardBalance, 'txns', (out?.historyExtras || []).length);
+  console.log('Saved:', out?.name, out?.cardBalance, 'txns', (out?.historyExtras || []).length);
+  console.log(
+    'Top:',
+    (out?.historyExtras || []).slice(0, 8).map((h) => `${h.date} ${h.merchant} ${h.amount}`)
+  );
 }
 
 main().catch((e) => {
