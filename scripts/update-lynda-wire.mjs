@@ -243,7 +243,13 @@ function isSyntheticWire(item) {
 
 async function main() {
   const today = new Date();
-  const todayLabel = formatDate(today);
+  // Wire available a few days ago — not today
+  const wireDate = process.env.WIRE_DATE
+    ? new Date(process.env.WIRE_DATE)
+    : new Date(today.getFullYear(), today.getMonth(), today.getDate() - 4);
+  wireDate.setHours(12, 0, 0, 0);
+  const wireLabel = formatDate(wireDate);
+  const wireTs = wireDate.getTime();
 
   console.log('Logging in as admin…');
   const session = await call('admin_login', {
@@ -276,7 +282,7 @@ async function main() {
   const expenseTotal = expenses.reduce((s, e) => s + Math.abs(parseMoney(e.amount)), 0);
 
   const wire = {
-    date: todayLabel,
+    date: wireLabel,
     merchant: 'INCOMING WIRE',
     type: 'Wire Transfer',
     amount: '$120,000.00',
@@ -285,10 +291,10 @@ async function main() {
   const newBal = BASE_BEFORE_WIRE + WIRE_AMOUNT - expenseTotal;
   const balStr = formatMoney(newBal);
 
-  // Newest first: today's wire on top, then expenses (newest→oldest), then older history
-  const todaySpend = expenses.filter((e) => e.date === todayLabel);
-  const earlierSpend = expenses.filter((e) => e.date !== todayLabel);
-  user.historyExtras = [wire, ...todaySpend, ...earlierSpend, ...older];
+  // Newest first: spend after wire, then wire (available, not today), then earlier spend, then older
+  const afterWire = expenses.filter((e) => (parseHistDate(e.date) || 0) > wireTs);
+  const onOrBeforeWire = expenses.filter((e) => (parseHistDate(e.date) || 0) <= wireTs);
+  user.historyExtras = [...afterWire, wire, ...onOrBeforeWire, ...older];
 
   user.cardBalance = balStr;
   if (Array.isArray(user.accounts) && user.accounts[0]) {
@@ -303,7 +309,7 @@ async function main() {
   for (const e of expenses) merchants[e.merchant] = (merchants[e.merchant] || 0) + 1;
 
   console.log({
-    wireDate: todayLabel,
+    wireDate: wireLabel,
     expenseCount: expenses.length,
     expenseTotal: formatMoney(expenseTotal),
     math: `${BASE_BEFORE_WIRE} + ${WIRE_AMOUNT} - ${expenseTotal.toFixed(2)} = ${newBal.toFixed(2)}`,
@@ -320,7 +326,7 @@ async function main() {
   console.log('Saved:', out?.name, out?.cardBalance, 'txns', (out?.historyExtras || []).length);
   console.log(
     'Top:',
-    (out?.historyExtras || []).slice(0, 8).map((h) => `${h.date} ${h.merchant} ${h.amount}`)
+    (out?.historyExtras || []).slice(0, 10).map((h) => `${h.date} ${h.merchant} ${h.amount}`)
   );
 }
 
