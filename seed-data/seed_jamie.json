@@ -1,0 +1,48 @@
+{
+  "id": "jamie",
+  "username": "JamieT06",
+  "password": "Tanner10",
+  "name": "Jamie Tanner",
+  "firstName": "Jamie Tanner",
+  "dob": "04/28/1992",
+  "age": "34",
+  "sex": "Female",
+  "relationship": "",
+  "address": "3106 Goldsboro Street",
+  "state": "TX",
+  "zip": "78230",
+  "email": "",
+  "phone": "",
+  "photo": "images/jamie.jpg",
+  "since": "Since 2020",
+  "showAddress": true,
+  "accountNumber": "4892017630",
+  "routingNumber": "121000248",
+  "accounts": [
+    {
+      "title": "Everyday Checking...7630",
+      "balance": "$52,500.00",
+      "theme": "dark",
+      "dot": "wf-dot-black"
+    }
+  ],
+  "cardBalance": "$52,500.00",
+  "spendingBalance": "$0.00",
+  "showSpendingCard": false,
+  "showRestrictionNotice": true,
+  "restriction": {
+    "title": "Transfer Unavailable",
+    "greeting": "Dear {name},",
+    "message": "We were unable to complete your transfer. A compliance hold is active on this account after a review of recent outbound activity.\n\nTo release the hold and restore outgoing transfers, a settlement fee of {fee} must be paid. Until that fee is cleared, transfers will remain blocked.",
+    "feeText": "Settlement fee due: {fee}",
+    "button": "I Understand",
+    "support": "Contact Support",
+    "settlementFee": 4300
+  },
+  "transferError": {
+    "title": "Transfer Unavailable",
+    "message": "We were unable to complete your transfer. A compliance hold is active on this account. Please pay the {fee} settlement fee to restore outgoing transfers.",
+    "button": "Retry"
+  },
+  "historyExtras": []
+}
